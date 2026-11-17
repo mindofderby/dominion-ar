@@ -22,7 +22,7 @@ function fit(){
  var avail=Math.max(320,h-T-B),s=Math.min(w/390,avail/MINH),H=avail/s;
  var c=st.firstElementChild;c.style.height=H+'px';
  st.style.top=T+'px';st.style.height=H+'px';st.style.transform='translateX(-50%) scale('+s+')';
- if(box){box.style.top=T+'px';box.style.height=avail+'px';box.style.left=Math.max(0,(w-390*s)/2)+'px';box.style.width=Math.min(w,390*s)+'px';}
+ if(box){var I=FRAME?Math.ceil(2*s):0,L=Math.ceil(Math.max(0,(w-390*s)/2))+I,R=Math.floor(Math.min(w,(w+390*s)/2))-I;box.style.top=Math.ceil(T+I)+'px';box.style.height=Math.floor(avail-2*I)+'px';box.style.left=L+'px';box.style.width=(R-L)+'px';}
  if(svg){svg.setAttribute('viewBox','0 0 390 '+H);svg.style.height=H+'px';svg.firstChild.setAttribute('d',framePath(H));svg.style.overflow='visible';}
  window.dispatchEvent(new Event('stagefit'));
 }
