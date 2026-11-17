@@ -78,14 +78,14 @@ R.layers.forEach((L, i) => {
   mesh.userData = { role: L.role, z, ph: (fxi++) * 1.7 + i * 0.37, fx: isFx };
   scene.add(mesh); meshes.push(mesh);
 });
-let S = 1, shiftX = 0;
+let S = 1, shiftX = 0, W0 = 1;
 function resize() {
   const w = innerWidth, h = innerHeight;
   renderer.setSize(w, h, false);
   cam.aspect = w / h; cam.updateProjectionMatrix();
   const h0 = 2 * DIST * Math.tan(THREE.MathUtils.degToRad(FOV / 2));
   const w0 = h0 * cam.aspect;
-  S = Math.max(h0, w0) * 1.04;
+  S = Math.max(h0 * 1.04, Math.min(w0 * 1.04, h0 * 1.25)); W0 = w0;
   const room = Math.max(0, (S - w0) / 2 - 0.35);
   shiftX = THREE.MathUtils.clamp(-(R.cx - 0.5) * S, -room, room);
   layout(0);
@@ -94,6 +94,7 @@ function layout(t) {
   for (const m of meshes) {
     const u = m.userData, k = (DIST - u.z) / DIST;
     let s = S * k * (u.role === 'background' ? 1.06 : 1);
+    if (u.role === 'background') s = Math.max(s, W0 * 1.2 * k);
     let x = shiftX * k;
     if (u.fx) {
       s *= 1 + 0.025 * Math.sin(t * 0.35 + u.ph);
