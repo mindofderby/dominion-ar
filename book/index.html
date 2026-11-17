@@ -22,6 +22,20 @@ a{color:inherit}
 .plate{background:url(../assets/plate-h.jpg) center/100% 100% no-repeat;color:#000;text-shadow:0 .6px 0 rgba(255,255,255,.75)}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;height:54px;padding:0 30px;font-weight:800;font-size:15px;letter-spacing:.14em;text-decoration:none;text-transform:uppercase;clip-path:var(--ch10);transition:transform .15s}
 .btn:active{transform:scale(.97)}
+.wl{display:flex;flex-direction:column;gap:18px;max-width:560px;margin:28px auto 0;text-align:left}
+.fld{display:flex;flex-direction:column;gap:8px}.fld>span,.pick legend{font-family:'Barlow Semi Condensed',sans-serif;font-weight:700;letter-spacing:.24em;font-size:12px;color:#8E949D;text-transform:uppercase}
+.fld .in{padding:1.5px;background:rgba(142,148,157,.55);clip-path:var(--ch10)}.fld .in:focus-within{background:#fff}
+.fld input{width:100%;box-sizing:border-box;height:52px;border:0;outline:0;background:#000;color:#fff;font:600 17px Barlow,system-ui,sans-serif;padding:0 18px;clip-path:var(--ch10i1)}
+.pick{border:0;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.pick legend{margin-bottom:8px;padding:0}
+.pick label{position:relative;padding:1.5px;background:rgba(142,148,157,.55);clip-path:var(--ch10);cursor:pointer}
+.pick input{position:absolute;opacity:0;pointer-events:none}.pick span{display:flex;align-items:center;justify-content:center;height:48px;background:#000;color:#D9DCE0;font-weight:800;font-size:13px;letter-spacing:.12em;text-transform:uppercase;clip-path:var(--ch10i1)}
+.pick input:checked+span{background:url(../assets/plate-h.jpg) center/100% 100% no-repeat;color:#000}.pick label:has(input:checked){background:#fff}.pick input:focus-visible+span{outline:2px solid #fff;outline-offset:-4px}
+.sub{display:flex;gap:12px;align-items:flex-start;font-size:14px;line-height:20px;color:#A9AEB6;cursor:pointer}.sub input{width:18px;height:18px;margin:1px 0 0;accent-color:#C9CDD3;flex:none}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+.wl .ctas{justify-content:flex-start;margin-top:6px}.wl button.btn{border:0;cursor:pointer;font-family:inherit}.wl button[disabled]{opacity:.6}
+.msg{min-height:20px;margin:0;font-size:14px;color:#A9AEB6}.msg a{color:#fff}
+.get .done{margin-top:28px}.get .done h3{font-size:clamp(26px,3vw,36px);margin:0 0 10px}
+@media (max-width:640px){.pick{grid-template-columns:1fr}}
 .btn.ghost{background:#fff;padding:2px}
 .btn.ghost span{display:flex;align-items:center;justify-content:center;height:100%;padding:0 28px;background:#000;color:#fff;clip-path:var(--ch10i2)}
 header.hero{position:relative;min-height:100svh;display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden}
@@ -152,10 +166,31 @@ footer img{width:54px}
 <div class="fan"><img class="fc" src="cards/card-01-kalki.jpg" alt="Kalki trading card" loading="lazy" style="left:14.00%;top:62.00%;--r:-30.0deg;z-index:95"><img class="fc" src="cards/card-02-banshee.jpg" alt="Banshee trading card" loading="lazy" style="left:21.20%;top:57.20%;--r:-24.0deg;z-index:96"><img class="fc" src="cards/card-03-jade.jpg" alt="Jade trading card" loading="lazy" style="left:28.40%;top:53.07%;--r:-18.0deg;z-index:97"><img class="fc" src="cards/card-04-mamba.jpg" alt="Mamba trading card" loading="lazy" style="left:35.60%;top:49.69%;--r:-12.0deg;z-index:98"><img class="fc" src="cards/card-05-gaya.jpg" alt="Gaya trading card" loading="lazy" style="left:42.80%;top:47.22%;--r:-6.0deg;z-index:99"><img class="fc back" src="cards/card-back.jpg" alt="Card back" loading="lazy" style="left:50.00%;top:46.00%;--r:0.0deg;z-index:100"><img class="fc" src="cards/card-06-flora.jpg" alt="Flora trading card" loading="lazy" style="left:57.20%;top:47.22%;--r:6.0deg;z-index:99"><img class="fc" src="cards/card-07-chrona.jpg" alt="Chrona trading card" loading="lazy" style="left:64.40%;top:49.69%;--r:12.0deg;z-index:98"><img class="fc" src="cards/card-08-hex.jpg" alt="Hex trading card" loading="lazy" style="left:71.60%;top:53.07%;--r:18.0deg;z-index:97"><img class="fc" src="cards/card-09-strobe.jpg" alt="Strobe trading card" loading="lazy" style="left:78.80%;top:57.20%;--r:24.0deg;z-index:96"><img class="fc" src="cards/card-10-glacia.jpg" alt="Glacia trading card" loading="lazy" style="left:86.00%;top:62.00%;--r:30.0deg;z-index:95"></div>
 </div></section>
 <section id="get"><div class="wrap get">
-<span class="eyebrow">Copies, shows, press</span><h2 class="chrome">Get the Book</h2>
-<p>Printed copies are going out now. Want one, want the show in your gallery, or want to talk about the work? Write to MindOfDerby.</p>
-<div class="ctas"><a class="btn plate" href="mailto:hello@mindofderby.com?subject=The%20Shattered%20Dominion%3A%20copy">Request a Copy</a><a class="btn ghost" href="mailto:hello@mindofderby.com?subject=The%20Shattered%20Dominion%3A%20gallery%20show"><span>Galleries &amp; Press</span></a></div>
+<span class="eyebrow">First printing</span><h2 class="chrome">Join the Waitlist</h2>
+<p>The first printing of the book and the ten trading cards drops in January. Get on the list for first access.</p>
+<form id="wl" class="wl" novalidate>
+<label class="fld"><span>First name</span><div class="in"><input name="first" autocomplete="given-name" maxlength="60"></div></label>
+<label class="fld"><span>Email</span><div class="in"><input name="email" type="email" autocomplete="email" required maxlength="120"></div></label>
+<fieldset class="pick"><legend>I want</legend>
+<label><input type="radio" name="want" value="The book" checked><span>The book</span></label><label><input type="radio" name="want" value="The trading cards"><span>The cards</span></label><label><input type="radio" name="want" value="Both"><span>Both</span></label></fieldset>
+<label class="sub"><input type="checkbox" name="sub" checked><span>Email me when the book drops and when new MindOfDerby work goes live.</span></label>
+<input class="hp" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+<div class="ctas"><button class="btn plate" type="submit">Join the Waitlist</button><a class="btn ghost" href="mailto:hello@mindofderby.com?subject=The%20Shattered%20Dominion%3A%20gallery%20show"><span>Galleries &amp; Press</span></a></div>
+<p class="msg" role="status" aria-live="polite"></p>
+</form>
+<div class="done" hidden><h3 class="chrome">You are on the list.</h3><p>We will email you the moment The Shattered Dominion drops. Until then, scan any page of the book or step into a realm now.</p><div class="ctas"><a class="btn plate" href="../">Step Inside</a></div></div>
 </div></section>
+<script>
+(function(){var C='47f071f7-2296-4ee0-a2cc-05d80f4c5f68',F='4493e3bc-9333-4cab-8f0e-0b50834f0957',A='https://www.wixapis.com',f=document.getElementById('wl'),m=f.querySelector('.msg');
+function ls(k,v){try{if(v===undefined)return localStorage.getItem(k);localStorage.setItem(k,v)}catch(e){return null}}
+function tok(){var r=ls('tsd_rt'),b=r?{clientId:C,grantType:'refresh_token',refreshToken:r}:{clientId:C,grantType:'anonymous'};
+return fetch(A+'/oauth2/token',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(b)}).then(function(x){if(!x.ok){if(r){ls('tsd_rt','');return tok()}throw 0}return x.json()}).then(function(j){if(j.refresh_token)ls('tsd_rt',j.refresh_token);return j.access_token})}
+f.addEventListener('submit',function(e){e.preventDefault();if(f.website.value)return;var em=f.email.value.trim();
+if(!/^[^@ ]+@[^@ ]+[.][^@ ]+$/.test(em)){m.textContent='Enter a valid email.';f.email.focus();return}
+var bt=f.querySelector('button');bt.disabled=true;m.textContent='Adding you...';
+var sv={email_e974:em,interest_65df:f.querySelector('input[name=want]:checked').value,subscribe_0430:f.sub.checked};if(f.first.value.trim())sv.first_name_2ef5=f.first.value.trim();
+tok().then(function(t){return fetch(A+'/form-submission-service/v4/submissions',{method:'POST',headers:{'Content-Type':'application/json',Authorization:t},body:JSON.stringify({submission:{formId:F,submissions:sv}})})}).then(function(x){if(!x.ok)throw 0;f.hidden=true;document.querySelector('.get .done').hidden=false}).catch(function(){bt.disabled=false;m.innerHTML='That did not go through. Email <a href="mailto:hello@mindofderby.com?subject=The%20Shattered%20Dominion%3A%20waitlist">hello@mindofderby.com</a> and we will add you.'})});})();
+</script>
 </main>
 <footer><img src="../assets/derby-logo.svg" alt="MindOfDerby"><span>Dedicated to all the badass women in the world.</span><span><a href="https://www.mindofderby.com">mindofderby.com</a> · hello@mindofderby.com</span></footer>
 </body></html>
