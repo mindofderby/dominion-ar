@@ -1,0 +1,15 @@
+html,body{margin:0;height:100%;background:#000;color:#fff;overflow:hidden;-webkit-tap-highlight-color:transparent;touch-action:none;overscroll-behavior:none}
+body.mode-scroll{overflow-y:auto;touch-action:pan-y}
+#stage{position:absolute;left:50%;top:0;transform-origin:50% 0;width:390px}
+#stage>div{width:390px!important;background:transparent!important}
+button{-webkit-user-select:none;user-select:none}
+#world,#cam{position:fixed;inset:0;width:100vw;height:100vh;height:100dvh;z-index:0}
+#stage{z-index:2}
+#cam video{object-fit:cover}
+.hide{display:none!important}
+#gate{position:fixed;inset:0;z-index:5;background:#000;display:flex;align-items:center;justify-content:center;transition:opacity .6s}
+#gate.done{opacity:0;pointer-events:none}
+#gate .bar{width:140px;height:3px;background:#222;overflow:hidden}
+#gate .bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,#fff,#8E949D,#fff);transition:width .2s}
+body.mode-fill #stage{pointer-events:none}body.mode-fill #stage button{pointer-events:auto}
+#err{position:fixed;left:16px;right:16px;bottom:calc(150px + env(safe-area-inset-bottom));z-index:6;text-align:center;font:700 13px/18px Barlow,sans-serif;color:#fff;text-shadow:0 0 6px #000}
