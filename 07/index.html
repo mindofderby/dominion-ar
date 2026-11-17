@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
 <meta name="theme-color" content="#000000">
 <title>Chrona | The Shattered Dominion AR</title><meta name="description" content="Step into Chrona's realm. Erin as Chrona, The Shattered Dominion by MindOfDerby.">
 <base href="../">
@@ -80,7 +80,7 @@ R.layers.forEach((L, i) => {
 });
 let S = 1, shiftX = 0, W0 = 1;
 function resize() {
-  const w = innerWidth, h = innerHeight;
+  const w = cvs.clientWidth || innerWidth, h = cvs.clientHeight || innerHeight;
   renderer.setSize(w, h, false);
   cam.aspect = w / h; cam.updateProjectionMatrix();
   const h0 = 2 * DIST * Math.tan(THREE.MathUtils.degToRad(FOV / 2));
@@ -104,7 +104,7 @@ function layout(t) {
     m.scale.set(s, s, 1); m.position.x = x;
   }
 }
-addEventListener('resize', resize); resize();
+addEventListener('resize', resize); addEventListener('stagefit', resize); resize();
 
 // input
 let yaw = 0, pitch = 0, tYaw = 0, tPitch = 0, drag = null, moved = 0;
