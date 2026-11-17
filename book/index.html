@@ -74,9 +74,15 @@ h2{margin:0;font-size:clamp(34px,6vw,56px);line-height:1.05;letter-spacing:.02em
 .get p{max-width:600px;margin:0;font-size:17px;line-height:27px}
 footer{padding:56px 0 calc(40px + env(safe-area-inset-bottom));text-align:center;border-top:1px solid #1a1b1e;display:flex;flex-direction:column;align-items:center;gap:14px;color:#8E949D;font-size:13px}
 footer img{width:54px}
+.fan{position:relative;width:100%;aspect-ratio:2.35/1;margin-top:-10px}
+.fc{position:absolute;width:15%;height:auto;transform:translate(-50%,-50%) rotate(var(--r));transform-origin:50% 50%;box-shadow:0 18px 40px rgba(0,0,0,.75);transition:transform .25s,z-index 0s}
+.fc.back{width:18%}
+.fc:hover{transform:translate(-50%,-58%) rotate(var(--r)) scale(1.06);z-index:200!important}
+.cardsec .head{text-align:center;align-items:center}
+.cardsec p{max-width:640px;margin:0 auto;font-size:17px;line-height:27px;text-align:center}
 @media (min-width:900px){.grid{grid-template-columns:repeat(2,1fr)}}
 @media (max-width:860px){.book,.split{grid-template-columns:1fr;gap:32px}.steps{grid-template-columns:1fr}section{padding:72px 0}}
-@media (max-width:640px){.grid{grid-template-columns:1fr}.specs{grid-template-columns:1fr 1fr}.sov .nm{font-size:26px}.hero p.lede{font-size:15px;line-height:23px}.btn{height:50px;font-size:13px;padding:0 22px}.btn.ghost span{padding:0 20px}}
+@media (max-width:640px){.fan{aspect-ratio:auto;display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:24px}.fc,.fc.back{position:static;width:100%;transform:none!important}.fc.back{order:-1}.grid{grid-template-columns:1fr}.specs{grid-template-columns:1fr 1fr}.sov .nm{font-size:26px}.hero p.lede{font-size:15px;line-height:23px}.btn{height:50px;font-size:13px;padding:0 22px}.btn.ghost span{padding:0 20px}}
 </style></head><body>
 <header class="hero"><div class="strips" aria-hidden="true"><div class="s" style="--c:#E62A3F"><div style="background-image:url(../assets/eyes/eye-01.jpg)"></div></div><div class="s" style="--c:#F47934"><div style="background-image:url(../assets/eyes/eye-02.jpg)"></div></div><div class="s" style="--c:#DF9E2B"><div style="background-image:url(../assets/eyes/eye-03.jpg)"></div></div><div class="s" style="--c:#84D83E"><div style="background-image:url(../assets/eyes/eye-04.jpg)"></div></div><div class="s" style="--c:#2DD0DB"><div style="background-image:url(../assets/eyes/eye-05.jpg)"></div></div><div class="s" style="--c:#0568D8"><div style="background-image:url(../assets/eyes/eye-06.jpg)"></div></div><div class="s" style="--c:#6A86AD"><div style="background-image:url(../assets/eyes/eye-07.jpg)"></div></div><div class="s" style="--c:#8C2CD9"><div style="background-image:url(../assets/eyes/eye-08.jpg)"></div></div><div class="s" style="--c:#D81B79"><div style="background-image:url(../assets/eyes/eye-09b.jpg)"></div></div><div class="s" style="--c:#E0E2E4"><div style="background-image:url(../assets/eyes/eye-10.jpg)"></div></div></div>
 <div class="in wrap">
@@ -140,10 +146,10 @@ footer img{width:54px}
 </div>
 <div class="ctas" style="margin-top:28px;justify-content:flex-start"><a class="btn plate" href="../">Start Camera</a></div>
 </div></section>
-<section><div class="wrap split">
-<div><span class="eyebrow">Collect all ten</span><h2 class="chrome" style="margin-top:12px">The Cards</h2>
-<p>Ten collectible trading cards, one per sovereign, with her trait, her ult and her element. The back of every card opens the realms.</p></div>
-<img src="cards-fan.jpg" alt="The Shattered Dominion trading cards" loading="lazy" width="2400" height="1400">
+<section class="cardsec"><div class="wrap">
+<div class="head"><span class="eyebrow">Collect all ten</span><h2 class="chrome">The Cards</h2></div>
+<p>Ten collectible trading cards, one per sovereign, with her trait, her ult and her element. The back of every card opens the realms.</p>
+<div class="fan"><img class="fc" src="cards/card-01-kalki.jpg" alt="Kalki trading card" loading="lazy" style="left:14.00%;top:62.00%;--r:-30.0deg;z-index:95"><img class="fc" src="cards/card-02-banshee.jpg" alt="Banshee trading card" loading="lazy" style="left:21.20%;top:57.20%;--r:-24.0deg;z-index:96"><img class="fc" src="cards/card-03-jade.jpg" alt="Jade trading card" loading="lazy" style="left:28.40%;top:53.07%;--r:-18.0deg;z-index:97"><img class="fc" src="cards/card-04-mamba.jpg" alt="Mamba trading card" loading="lazy" style="left:35.60%;top:49.69%;--r:-12.0deg;z-index:98"><img class="fc" src="cards/card-05-gaya.jpg" alt="Gaya trading card" loading="lazy" style="left:42.80%;top:47.22%;--r:-6.0deg;z-index:99"><img class="fc back" src="cards/card-back.jpg" alt="Card back" loading="lazy" style="left:50.00%;top:46.00%;--r:0.0deg;z-index:100"><img class="fc" src="cards/card-06-flora.jpg" alt="Flora trading card" loading="lazy" style="left:57.20%;top:47.22%;--r:6.0deg;z-index:99"><img class="fc" src="cards/card-07-chrona.jpg" alt="Chrona trading card" loading="lazy" style="left:64.40%;top:49.69%;--r:12.0deg;z-index:98"><img class="fc" src="cards/card-08-hex.jpg" alt="Hex trading card" loading="lazy" style="left:71.60%;top:53.07%;--r:18.0deg;z-index:97"><img class="fc" src="cards/card-09-strobe.jpg" alt="Strobe trading card" loading="lazy" style="left:78.80%;top:57.20%;--r:24.0deg;z-index:96"><img class="fc" src="cards/card-10-glacia.jpg" alt="Glacia trading card" loading="lazy" style="left:86.00%;top:62.00%;--r:30.0deg;z-index:95"></div>
 </div></section>
 <section id="get"><div class="wrap get">
 <span class="eyebrow">Copies, shows, press</span><h2 class="chrome">Get the Book</h2>
