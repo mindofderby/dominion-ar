@@ -1,0 +1,54 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Featured: The Shattered Dominion | MindOfDerby</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@600;700;800&family=Barlow+Semi+Condensed:wght@700&family=Cinzel:wght@900&display=swap">
+<style>
+*{box-sizing:border-box}html,body{margin:0;height:100%;background:#000;overflow:hidden}
+body{font-family:Barlow,system-ui,sans-serif;color:#fff;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+.card{position:relative;height:100%;width:100%;overflow:hidden;background:#000;border-radius:32px;container-type:size}
+.strips{position:absolute;top:0;bottom:0;right:0;width:58%;display:grid;grid-template-columns:repeat(10,1fr);gap:clamp(4px,.8cqw,10px);padding:clamp(10px,1.6cqw,22px) clamp(10px,1.6cqw,22px) 0 0}
+.s{--k:clamp(7px,1.1cqw,14px);height:100%;padding:2px;background:linear-gradient(180deg,var(--c) 0%,var(--c) 60%,transparent 96%);clip-path:polygon(var(--k) 0,calc(100% - var(--k)) 0,100% var(--k),100% 100%,0 100%,0 var(--k));transform:translateY(100%);animation:up .9s cubic-bezier(.2,.8,.2,1) forwards}
+.s div{height:100%;background-size:cover;background-position:50% 0;clip-path:polygon(calc(var(--k) - 1px) 0,calc(100% - var(--k) + 1px) 0,100% calc(var(--k) - 1px),100% 100%,0 100%,0 calc(var(--k) - 1px))}
+.s:nth-child(1){animation-delay:0.00s}.s:nth-child(2){animation-delay:0.06s}.s:nth-child(3){animation-delay:0.12s}.s:nth-child(4){animation-delay:0.18s}.s:nth-child(5){animation-delay:0.24s}.s:nth-child(6){animation-delay:0.30s}.s:nth-child(7){animation-delay:0.36s}.s:nth-child(8){animation-delay:0.42s}.s:nth-child(9){animation-delay:0.48s}.s:nth-child(10){animation-delay:0.54s}
+@keyframes up{to{transform:none}}
+.fade{position:absolute;inset:0;pointer-events:none;background:linear-gradient(90deg,#000 40%,rgba(0,0,0,.55) 48%,rgba(0,0,0,0) 60%),linear-gradient(0deg,#000 0%,rgba(0,0,0,0) 40%)}
+.in{position:relative;z-index:2;height:100%;width:56%;display:flex;flex-direction:column;justify-content:center;gap:clamp(12px,2cqh,22px);padding:0 0 0 clamp(24px,5cqw,72px)}
+.eb{display:inline-flex;align-self:flex-start;align-items:center;gap:10px;font:700 clamp(11px,1cqw,14px)/1 'Barlow Semi Condensed',sans-serif;letter-spacing:.3em;text-transform:uppercase;color:#000;background:url(../assets/plate-h.jpg) center/100% 100% no-repeat;padding:8px 14px;clip-path:polygon(6px 0,calc(100% - 6px) 0,100% 6px,100% calc(100% - 6px),calc(100% - 6px) 100%,6px 100%,0 calc(100% - 6px),0 6px)}
+.eb i{width:8px;height:8px;border-radius:50%;background:#E62A3F;box-shadow:0 0 8px #E62A3F;animation:p 1.6s ease-in-out infinite}
+@keyframes p{50%{opacity:.35}}
+.logo{width:min(100%,520px);height:auto;display:block;filter:drop-shadow(0 8px 24px rgba(0,0,0,.9));margin-left:-1.5%}
+p{margin:0;max-width:470px;font-size:clamp(15px,1.45cqw,19px);line-height:1.5;font-weight:600;color:#D9DCE0}
+.stats{display:flex;gap:clamp(14px,2.4cqw,32px);flex-wrap:wrap}
+.stats div{display:flex;flex-direction:column;gap:4px}
+.stats b{font:900 clamp(20px,2.2cqw,30px)/1 Cinzel,serif;background:linear-gradient(180deg,#FFFFFF 0%,#E4E7EB 28%,#8E949D 48%,#F3F5F7 60%,#A9AEB6 82%,#FFFFFF 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.stats span{font:700 11px/1 'Barlow Semi Condensed',sans-serif;letter-spacing:.2em;color:#8E949D;text-transform:uppercase}
+.ctas{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;justify-content:center;height:52px;padding:0 28px;font-weight:800;font-size:14px;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;color:#000;background:url(../assets/plate-h.jpg) center/100% 100% no-repeat;clip-path:polygon(10px 0,calc(100% - 10px) 0,100% 10px,100% calc(100% - 10px),calc(100% - 10px) 100%,10px 100%,0 calc(100% - 10px),0 10px);transition:transform .15s,filter .15s}
+.btn:hover{transform:translateY(-2px);filter:brightness(1.08)}
+.btn.g{background:#fff;padding:2px}.btn.g span{display:flex;align-items:center;height:100%;padding:0 26px;background:#000;color:#fff;clip-path:inherit}
+.icons{display:flex;gap:10px;flex-wrap:wrap}.icons img{width:20px;height:19px}
+@container (max-width:760px){
+ .strips{width:100%;height:46%;bottom:auto;padding:12px 12px 0}
+ .fade{background:linear-gradient(0deg,#000 50%,rgba(0,0,0,.6) 60%,rgba(0,0,0,0) 72%)}
+ .in{width:100%;justify-content:flex-end;padding:0 22px 26px;gap:14px}
+ .logo{width:min(100%,420px)}
+ .stats{gap:22px}
+ .btn{height:48px;padding:0 20px;font-size:12px}.btn.g span{padding:0 18px}
+}
+@media (prefers-reduced-motion:reduce){.s{animation:none;transform:none}}
+</style></head><body>
+<div class="card">
+ <div class="strips" aria-hidden="true"><div class="s" style="--c:#E62A3F"><div style="background-image:url(../assets/eyes/eye-01.jpg)"></div></div><div class="s" style="--c:#F47934"><div style="background-image:url(../assets/eyes/eye-02.jpg)"></div></div><div class="s" style="--c:#DF9E2B"><div style="background-image:url(../assets/eyes/eye-03.jpg)"></div></div><div class="s" style="--c:#84D83E"><div style="background-image:url(../assets/eyes/eye-04.jpg)"></div></div><div class="s" style="--c:#2DD0DB"><div style="background-image:url(../assets/eyes/eye-05.jpg)"></div></div><div class="s" style="--c:#0568D8"><div style="background-image:url(../assets/eyes/eye-06.jpg)"></div></div><div class="s" style="--c:#6A86AD"><div style="background-image:url(../assets/eyes/eye-07.jpg)"></div></div><div class="s" style="--c:#8C2CD9"><div style="background-image:url(../assets/eyes/eye-08.jpg)"></div></div><div class="s" style="--c:#D81B79"><div style="background-image:url(../assets/eyes/eye-09b.jpg)"></div></div><div class="s" style="--c:#E0E2E4"><div style="background-image:url(../assets/eyes/eye-10.jpg)"></div></div></div>
+ <div class="fade"></div>
+ <div class="in">
+  <span class="eb"><i></i>Featured project</span>
+  <img class="logo" src="../assets/logo-cover.webp" alt="The Shattered Dominion" width="1160" height="648">
+  <p>A dark fantasy photobook and the first original IP from MindOfDerby. Ten villains, ten realms, and a living AR world behind every spread.</p>
+  <div class="stats"><div><b>20</b><span>Images</span></div><div><b>10</b><span>Realms</span></div><div><b>AR</b><span>Live</span></div><div><b>10</b><span>Cards</span></div></div>
+  <div class="ctas"><a class="btn" href="https://www.mindofderby.com/dominion" target="_top">Enter the Dominion</a><a class="btn g" href="https://www.mindofderby.com/portfolio-collections/vfx-cgi/the-shattered-dominion" target="_top"><span>Case Study</span></a></div>
+ </div>
+</div>
+</body></html>
