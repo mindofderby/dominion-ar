@@ -48,7 +48,7 @@ css.textContent='#bd{position:fixed;inset:0;z-index:0;overflow:hidden;pointer-ev
 document.head.appendChild(css);
 var bd=document.createElement('div');bd.id='bd';
 if(id){bd.innerHTML='<div class="img" style="background-image:url(k/'+id+'/plate.webp)"></div>';}
-else{var e=['01','02','03','04','05','06','07','08','09b','10'],h='';for(var i=0;i<10;i++)h+='<div style="background-image:url(assets/eyes/eye-'+e[i]+'.jpg)"></div>';bd.innerHTML='<div class="strips">'+h+'</div>';}
+else{var e=['R-01','R-02','R-03','R-04','R-05b','-06','-07','-08','-09b','-10'],h='';for(var i=0;i<10;i++)h+='<div style="background-image:url(assets/eyes/eye'+e[i]+'.jpg)'+(i==1||i==2?';background-position-x:100%':'')+'"></div>';bd.innerHTML='<div class="strips">'+h+'</div>';}
 b.insertBefore(bd,b.firstChild);
 var dp=document.createElement('div');dp.id='dp';
 dp.innerHTML='<div class="eb">Best on your phone</div><h2>'+(id?'Scan to enter<br>this realm':'Scan to step<br>inside')+'</h2><p>'+(id?'Point your phone camera at this code. Her realm opens in your browser and moves as you tilt. No app needed.':'Point your phone camera at this code, then aim it at any Sovereign page in the book. No app needed.')+'</p><div class="q"><div><img alt="QR code" src="assets/qr/ar'+(id?'-'+id:'')+'.svg"></div></div><br><a href="https://www.mindofderby.com/dominion">About the book</a>';
