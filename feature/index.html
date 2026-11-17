@@ -17,32 +17,33 @@ a{color:inherit}
 .s:nth-child(1){animation-delay:0.00s}.s:nth-child(2){animation-delay:0.06s}.s:nth-child(3){animation-delay:0.12s}.s:nth-child(4){animation-delay:0.18s}.s:nth-child(5){animation-delay:0.24s}.s:nth-child(6){animation-delay:0.30s}.s:nth-child(7){animation-delay:0.36s}.s:nth-child(8){animation-delay:0.42s}.s:nth-child(9){animation-delay:0.48s}.s:nth-child(10){animation-delay:0.54s}
 @keyframes up{to{transform:none}}
 .fade{position:absolute;inset:0;pointer-events:none;background:linear-gradient(90deg,#000 41%,rgba(0,0,0,0) 43%),linear-gradient(0deg,#000 0%,rgba(0,0,0,0) 40%)}
-.in{position:relative;z-index:2;height:100%;width:39%;display:flex;flex-direction:column;justify-content:center;gap:clamp(12px,2cqh,22px);padding:0}
+.in{position:relative;z-index:2;height:100%;width:39%;display:flex;flex-direction:column;justify-content:center;gap:20px;padding:0}
 .eb{display:inline-flex;align-self:flex-start;align-items:center;gap:10px;font:700 clamp(11px,1cqw,14px)/1 'Barlow Semi Condensed',sans-serif;letter-spacing:.3em;text-transform:uppercase;color:#000;background:url(../assets/plate-h.jpg) center/100% 100% no-repeat;padding:8px 14px;clip-path:var(--c6)}
 .eb i{width:8px;height:8px;border-radius:50%;background:#E62A3F;box-shadow:0 0 8px #E62A3F;animation:p 1.6s ease-in-out infinite}
 @keyframes p{50%{opacity:.35}}
-.logo{width:min(100%,500px);height:auto;display:block;filter:drop-shadow(0 8px 24px rgba(0,0,0,.9));margin-left:-1.5%}
+.logo{width:min(92%,440px);height:auto;display:block;filter:drop-shadow(0 8px 24px rgba(0,0,0,.9))}
 p{margin:0;max-width:470px;font-size:clamp(15px,1.45cqw,19px);line-height:1.5;font-weight:600;color:#D9DCE0}
-.stats{display:flex;gap:clamp(14px,2.4cqw,32px);flex-wrap:wrap}
+.stats{display:flex;gap:24px;flex-wrap:wrap}
 .stats div{display:flex;flex-direction:column;gap:4px}
 .stats b{font:900 clamp(20px,2.2cqw,30px)/1 Cinzel,serif;background:linear-gradient(180deg,#FFFFFF 0%,#E4E7EB 28%,#8E949D 48%,#F3F5F7 60%,#A9AEB6 82%,#FFFFFF 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
 .stats span{font:700 11px/1 'Barlow Semi Condensed',sans-serif;letter-spacing:.2em;color:#8E949D;text-transform:uppercase}
-.ctas{display:flex;gap:12px;flex-wrap:wrap}
-.btn{display:inline-flex;align-items:center;justify-content:center;height:52px;padding:0 28px;font-weight:800;font-size:14px;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;color:#000;background:url(../assets/plate-h.jpg) center/100% 100% no-repeat;clip-path:var(--c10);transition:transform .15s,filter .15s}
+.ctas{display:flex;gap:20px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;justify-content:center;height:52px;padding:0 clamp(16px,2cqw,28px);font-weight:800;font-size:clamp(12px,1.25cqw,14px);letter-spacing:.12em;white-space:nowrap;text-transform:uppercase;text-decoration:none;color:#000;background:url(../assets/plate-h.jpg) center/100% 100% no-repeat;clip-path:var(--c10);transition:transform .15s,filter .15s}
 .btn:hover{transform:translateY(-2px);filter:brightness(1.08)}
 .btn.g{background:#fff;padding:2px}.btn.g span{display:flex;align-items:center;height:100%;padding:0 26px;background:#000;color:#fff;clip-path:var(--c10i)}
 .icons{display:flex;gap:10px;flex-wrap:wrap}.icons img{width:20px;height:19px}
 @container (max-width:560px){
- .card{display:flex;flex-direction:column;justify-content:flex-start;gap:14px}
+ .card{display:flex;flex-direction:column;justify-content:flex-start;gap:20px;height:100cqh;box-sizing:border-box;padding-bottom:6px}
  .in{display:contents}
  .eb{order:0;align-self:center}
- .strips{order:1;position:relative;inset:auto;flex:none;width:100%;height:min(90cqw,calc(100cqh - 400px));padding:0;-webkit-mask-image:linear-gradient(#000 62%,transparent 96%);mask-image:linear-gradient(#000 62%,transparent 96%)}
+ .strips{order:1;position:relative;inset:auto;width:100%;flex:1 1 0;height:auto;min-height:220px;max-height:120cqw;padding:0;-webkit-mask-image:linear-gradient(#000 62%,transparent 96%);mask-image:linear-gradient(#000 62%,transparent 96%)}
  .fade{display:none}
- .logo{order:2;position:relative;z-index:3;width:94%;margin:-27% auto 0}
+ .logo{order:2;position:relative;z-index:3;width:86%;margin:-24% auto 0}
  p{order:3;font-size:15px}
- .stats{order:4;gap:22px}
- .ctas{order:5}
- .btn{height:48px;padding:0 20px;font-size:12px}.btn.g span{padding:0 18px}
+ p{padding:0 18px}
+ .stats{order:4;gap:0;justify-content:space-between;padding:0 18px}
+ .ctas{order:5;display:grid;grid-template-columns:1fr 1fr;gap:20px;padding:0 18px}
+ .btn{height:48px;padding:0 8px;font-size:11.5px;letter-spacing:.08em;width:100%;box-sizing:border-box}.btn.g{padding:2px}.btn.g span{padding:0 12px;justify-content:center;width:100%;box-sizing:border-box}
 }
 @media (prefers-reduced-motion:reduce){.s{animation:none;transform:none}}
 </style></head><body>
@@ -51,9 +52,9 @@ p{margin:0;max-width:470px;font-size:clamp(15px,1.45cqw,19px);line-height:1.5;fo
  <div class="fade"></div>
  <div class="in">
   <span class="eb"><i></i>Featured project</span>
-  <img class="logo" src="../assets/logo-cover.webp" alt="The Shattered Dominion" width="1160" height="648">
+  <img class="logo" src="../assets/logo-cover-trim.webp" alt="The Shattered Dominion" width="1600" height="856">
   <p>A dark fantasy photobook and the first original IP from MindOfDerby. Ten villains, ten realms, and a living AR world behind every spread.</p>
-  <div class="stats"><div><b>20</b><span>Images</span></div><div><b>10</b><span>Realms</span></div><div><b>AR</b><span>Live</span></div><div><b>10</b><span>Cards</span></div></div>
+  <div class="stats"><div><b>20</b><span>Images</span></div><div><b>10</b><span>Realms</span></div><div><b>AR</b><span>Live</span></div><div><b>10</b><span>Cards</span></div><div><b>1</b><span>Book</span></div></div>
   <div class="ctas"><a class="btn" href="https://www.mindofderby.com/dominion" target="_blank" rel="noopener">Enter the Dominion</a><a class="btn g" href="https://www.mindofderby.com/portfolio-collections/vfx-cgi/the-shattered-dominion" target="_blank" rel="noopener"><span>Case Study</span></a></div>
  </div>
 </div>

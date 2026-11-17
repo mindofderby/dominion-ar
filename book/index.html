@@ -34,7 +34,7 @@ a{color:inherit}
 .hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
 .wl .ctas{justify-content:flex-start;margin-top:6px}.wl button.btn{border:0;cursor:pointer;font-family:inherit}.wl button[disabled]{opacity:.6}
 .msg{min-height:20px;margin:0;font-size:14px;color:#A9AEB6}.msg a{color:#fff}
-.get .done{margin-top:28px}.get .done h3{font-size:clamp(26px,3vw,36px);margin:0 0 10px}
+.wl[hidden],.get .done[hidden]{display:none!important}.get .done{margin-top:28px;display:flex;flex-direction:column;align-items:center;gap:20px}.get .done h3{font-size:clamp(26px,3vw,36px);margin:0}.get .done p{margin:0}.get .done .ctas{margin:0;justify-content:center}
 @media (max-width:640px){.pick{grid-template-columns:1fr}}
 .btn.ghost{background:#fff;padding:2px}
 .btn.ghost span{display:flex;align-items:center;justify-content:center;height:100%;padding:0 28px;background:#000;color:#fff;clip-path:var(--ch10i2)}
@@ -189,7 +189,7 @@ f.addEventListener('submit',function(e){e.preventDefault();if(f.website.value)re
 if(!/^[^@ ]+@[^@ ]+[.][^@ ]+$/.test(em)){m.textContent='Enter a valid email.';f.email.focus();return}
 var bt=f.querySelector('button');bt.disabled=true;m.textContent='Adding you...';
 var sv={email_e974:em,interest_65df:f.querySelector('input[name=want]:checked').value,subscribe_0430:f.sub.checked};if(f.first.value.trim())sv.first_name_2ef5=f.first.value.trim();
-tok().then(function(t){return fetch(A+'/form-submission-service/v4/submissions',{method:'POST',headers:{'Content-Type':'application/json',Authorization:t},body:JSON.stringify({submission:{formId:F,submissions:sv}})})}).then(function(x){if(!x.ok)throw 0;f.hidden=true;document.querySelector('.get .done').hidden=false}).catch(function(){bt.disabled=false;m.innerHTML='That did not go through. Email <a href="mailto:hello@mindofderby.com?subject=The%20Shattered%20Dominion%3A%20waitlist">hello@mindofderby.com</a> and we will add you.'})});})();
+tok().then(function(t){return fetch(A+'/form-submission-service/v4/submissions',{method:'POST',headers:{'Content-Type':'application/json',Authorization:t},body:JSON.stringify({submission:{formId:F,submissions:sv}})})}).then(function(x){if(!x.ok)throw 0;f.hidden=true;var dn=document.querySelector('.get .done');dn.hidden=false;dn.scrollIntoView({behavior:'smooth',block:'center'})}).catch(function(){bt.disabled=false;m.innerHTML='That did not go through. Email <a href="mailto:hello@mindofderby.com?subject=The%20Shattered%20Dominion%3A%20waitlist">hello@mindofderby.com</a> and we will add you.'})});})();
 </script>
 </main>
 <footer><img src="../assets/derby-logo.svg" alt="MindOfDerby"><span>Dedicated to all the badass women in the world.</span><span><a href="https://www.mindofderby.com">mindofderby.com</a> · hello@mindofderby.com</span></footer>
