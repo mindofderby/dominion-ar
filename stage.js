@@ -18,7 +18,7 @@ function fit(){
  var vv=window.visualViewport,w=vv?vv.width:innerWidth,h=vv?vv.height:innerHeight;
  var cs=getComputedStyle(probe),T=parseFloat(cs.paddingTop)||0,B=parseFloat(cs.paddingBottom)||0;
  // iOS Safari (non-standalone) can float its toolbar over the page: keep UI clear of it
- if(iOS&&!standalone) B=Math.max(B,84); else B=Math.max(B,8); T=Math.max(T,4);
+ B=Math.max(B,6); T=Math.max(T,4);
  var avail=Math.max(320,h-T-B),s=Math.min(w/390,avail/MINH),H=avail/s;
  var c=st.firstElementChild;c.style.height=H+'px';
  st.style.top=T+'px';st.style.height=H+'px';st.style.transform='translateX(-50%) scale('+s+')';
