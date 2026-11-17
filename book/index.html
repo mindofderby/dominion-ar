@@ -17,7 +17,6 @@ html{background:#000;scroll-behavior:smooth}
 body{margin:0;background:#000;color:#D9DCE0;font-family:Barlow,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
 a{color:inherit}
 .wrap{width:min(1200px,100% - 40px);margin:0 auto}
-@media (min-width:1320px){.wrap{width:1200px;zoom:var(--z,1)}}
 .chrome{font-family:Cinzel,serif;font-weight:900;background:var(--chrome);-webkit-background-clip:text;background-clip:text;color:transparent}
 .eyebrow{font-family:'Barlow Semi Condensed',sans-serif;font-weight:700;letter-spacing:.3em;font-size:12px;color:#8E949D;text-transform:uppercase}
 .plate{background:url(../assets/plate-h.jpg) center/100% 100% no-repeat;color:#000;text-shadow:0 .6px 0 rgba(255,255,255,.75)}
@@ -61,7 +60,6 @@ h2{margin:0;font-size:clamp(34px,6vw,56px);line-height:1.05;letter-spacing:.02em
 .sov .nm{font-family:Cinzel,serif;font-weight:900;font-size:30px;line-height:1;background:var(--chrome);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 2px 8px rgba(0,0,0,.9))}
 .sov .lin{font-size:13px;font-weight:700;color:#fff;text-shadow:0 0 6px #000}
 .sov .ult{font-size:12px;font-weight:800;letter-spacing:.08em;color:#BFC3C9;text-shadow:0 0 6px #000;text-transform:uppercase}
-footer{zoom:var(--z,1)}
 .sov .go{position:absolute;right:14px;top:14px;font-size:11px;font-weight:800;letter-spacing:.16em;padding:5px 10px;clip-path:var(--ch6)}
 .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
 .step{padding:1.5px;background:rgba(142,148,157,.55);clip-path:var(--ch16)}
@@ -154,5 +152,4 @@ footer img{width:54px}
 </div></section>
 </main>
 <footer><img src="../assets/derby-logo.svg" alt="MindOfDerby"><span>Dedicated to all the badass women in the world.</span><span><a href="https://www.mindofderby.com">mindofderby.com</a> · hello@mindofderby.com</span></footer>
-<script>(function(){function f(){var z=Math.min(2.2,Math.max(1,innerWidth/1320));document.documentElement.style.setProperty('--z',z)}f();addEventListener('resize',f)})()</script>
 </body></html>
