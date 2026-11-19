@@ -43,7 +43,7 @@
 import {MindARThree} from './lib/mindar/mindar-image-three.prod.js';
 const IDS=["01", "02", "03", "04", "05", "06", "07", "08", "09", "10"];
 const err=document.getElementById('err');
-const m=new MindARThree({container:document.getElementById('cam'),imageTargetSrc:'./targets.mind',maxTrack:1,uiScanning:'no',uiLoading:'no',uiError:'no',filterMinCF:0.0001,filterBeta:0.001});
+const m=new MindARThree({container:document.getElementById('cam'),imageTargetSrc:'./targets.mind?v=d0a792cb',maxTrack:1,uiScanning:'no',uiLoading:'no',uiError:'no',filterMinCF:0.0001,filterBeta:0.001});
 IDS.forEach((id,i)=>{const a=m.addAnchor(i);a.onTargetFound=()=>{try{m.stop();}catch(e){}location.href='./'+id+'/?scan=1';};});
 const {renderer,scene,camera}=m;
 m.start().then(()=>{renderer.setAnimationLoop(()=>renderer.render(scene,camera)); const rs=()=>{try{m.resize();}catch(e){}}; addEventListener('stagefit',rs); setTimeout(rs,50); setTimeout(rs,600);}).catch(e=>{const h=[...document.querySelectorAll('#stage p')].find(p=>p.textContent.indexOf('Hold steady')===0); if(h) h.textContent='Camera blocked. Allow camera access in your browser settings, or choose a realm below.';});
