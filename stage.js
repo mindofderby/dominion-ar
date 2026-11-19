@@ -47,7 +47,7 @@ css.textContent='#bd{position:fixed;inset:0;z-index:0;overflow:hidden;pointer-ev
 '#dp a{display:inline-block;margin-top:22px;font:800 12px/1 Barlow,sans-serif;letter-spacing:.16em;color:#fff;text-decoration:none;text-transform:uppercase;border-bottom:1px solid #8E949D;padding-bottom:4px}';
 document.head.appendChild(css);
 var bd=document.createElement('div');bd.id='bd';
-if(id){bd.innerHTML='<div class="img" style="background-image:url(k/'+id+'/plate.webp)"></div>';}
+if(id){bd.innerHTML='<div class="img" style="background-image:url(k/'+id+'/plate.webp?v=2)"></div>';}
 else{var e=['R-01','R-02','R-03','R-04','R-05b','-06','-07','-08','-09b','-10'],h='';for(var i=0;i<10;i++)h+='<div style="background-image:url(assets/eyes/eye'+e[i]+'.jpg)'+(i==1||i==2?';background-position-x:100%':'')+'"></div>';bd.innerHTML='<div class="strips">'+h+'</div>';}
 b.insertBefore(bd,b.firstChild);
 var dp=document.createElement('div');dp.id='dp';
