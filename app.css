@@ -15,4 +15,4 @@ button{-webkit-user-select:none;user-select:none}
 body.mode-fill #stage{pointer-events:none}body.mode-fill #stage button{pointer-events:auto}
 #err{position:fixed;left:16px;right:16px;bottom:calc(150px + env(safe-area-inset-bottom));z-index:6;text-align:center;font:700 13px/18px Barlow,sans-serif;color:#fff;text-shadow:0 0 6px #000}
 
-button:not([aria-label^="Open "]){transition:filter .15s}button:not([aria-label^="Open "]):hover{filter:invert(1)}
+button:not([aria-label^="Open "]){transition:filter .2s,transform .2s;overflow:hidden}button:not([aria-label^="Open "]):after{content:"";position:absolute;top:0;bottom:0;left:-60%;width:45%;background:linear-gradient(100deg,transparent 0%,rgba(255,255,255,.95) 50%,transparent 100%);transform:skewX(-20deg);opacity:0;pointer-events:none}button:not([aria-label^="Open "]):hover{filter:brightness(1.1) contrast(1.06)}button:not([aria-label^="Open "]):hover:after{opacity:.9;animation:sheen .7s ease forwards}@keyframes sheen{from{left:-60%}to{left:120%}}
