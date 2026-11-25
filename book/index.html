@@ -21,8 +21,11 @@ a{color:inherit}
 .chrome{font-family:Cinzel,serif;font-weight:900;background:var(--chrome);-webkit-background-clip:text;background-clip:text;color:transparent}
 .eyebrow{font-family:'Barlow Semi Condensed',sans-serif;font-weight:700;letter-spacing:.3em;font-size:12px;color:#8E949D;text-transform:uppercase}
 .plate{background:url(../assets/plate-h.jpg) center/100% 100% no-repeat;color:#000;text-shadow:0 .6px 0 rgba(255,255,255,.75)}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;height:54px;padding:0 30px;font-weight:800;font-size:15px;letter-spacing:.14em;text-decoration:none;text-transform:uppercase;clip-path:var(--ch10);transition:transform .15s,filter .15s}
-.btn:hover{filter:invert(1)}.btn:active{transform:scale(.97)}
+.btn{position:relative;overflow:hidden;display:inline-flex;align-items:center;justify-content:center;gap:10px;height:54px;padding:0 30px;font-weight:800;font-size:15px;letter-spacing:.14em;text-decoration:none;text-transform:uppercase;clip-path:var(--ch10);transition:transform .2s ease,filter .2s ease}
+.btn.plate:after{content:"";position:absolute;top:0;bottom:0;left:-60%;width:45%;background:linear-gradient(100deg,transparent 0%,rgba(255,255,255,.95) 50%,transparent 100%);transform:skewX(-20deg);opacity:0;pointer-events:none}
+.btn.plate:hover{filter:brightness(1.1) contrast(1.06);transform:translateY(-2px)}.btn.plate:hover:after{opacity:.9;animation:sheen .7s ease forwards}
+@keyframes sheen{from{left:-60%}to{left:120%}}
+.btn:active{transform:scale(.97)}
 .wl{display:flex;flex-direction:column;gap:18px;max-width:560px;margin:28px auto 0;text-align:left}
 .fld{display:flex;flex-direction:column;gap:8px}.fld>span,.pick legend{font-family:'Barlow Semi Condensed',sans-serif;font-weight:700;letter-spacing:.24em;font-size:12px;color:#8E949D;text-transform:uppercase}
 .fld .in{padding:1.5px;background:rgba(142,148,157,.55);clip-path:var(--ch10)}.fld .in:focus-within{background:#fff}
@@ -38,7 +41,9 @@ a{color:inherit}
 .wl[hidden],.get .done[hidden]{display:none!important}.get .done{margin-top:28px;display:flex;flex-direction:column;align-items:center;gap:20px}.get .done h3{font-size:clamp(26px,3vw,36px);margin:0}.get .done p{margin:0}.get .done .ctas{margin:0;justify-content:center}
 @media (max-width:640px){.pick{grid-template-columns:1fr}}
 .btn.ghost{background:#fff;padding:2px}
-.btn.ghost span{display:flex;align-items:center;justify-content:center;height:100%;padding:0 28px;background:#000;color:#fff;clip-path:var(--ch10i2)}
+.btn.ghost span{display:flex;align-items:center;justify-content:center;height:100%;padding:0 28px;background:#000;color:#fff;clip-path:var(--ch10i2);transition:background .2s}
+.btn.ghost{background:var(--chrome)}.btn.ghost:hover{transform:translateY(-2px)}.btn.ghost:hover span{background:#15171a}
+.cam{display:flex;width:max-content;margin:32px auto 0;align-items:center;gap:6px;padding:6px 11px;font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;text-decoration:none;color:#A9AEB6;border:1px solid #33363b;clip-path:var(--ch6);transition:color .2s,border-color .2s}.cam:hover{color:#fff;border-color:#8E949D}.cam svg{width:12px;height:12px}
 header.hero{position:relative;min-height:100svh;display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden}
 .strips{position:absolute;inset:0;margin:0 auto;max-width:1200px;display:grid;grid-template-columns:repeat(10,1fr);gap:clamp(4px,.7vw,12px);padding:clamp(10px,1.2vw,22px) clamp(10px,1.2vw,22px) 0}
 .strips .s{--k:clamp(8px,1vw,16px);height:100%;padding:2px;background:linear-gradient(180deg,var(--c) 0%,var(--c) 55%,transparent 92%);clip-path:var(--sk)}
@@ -64,7 +69,14 @@ h2{margin:0;font-size:clamp(34px,6vw,56px);line-height:1.05;letter-spacing:.02em
 .spec span{font-family:'Barlow Semi Condensed',sans-serif;font-weight:700;letter-spacing:.18em;font-size:11px;color:#8E949D;text-transform:uppercase}
 .head{display:flex;flex-direction:column;gap:12px;margin-bottom:36px}
 .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
-.sov{position:relative;display:block;text-decoration:none;color:#fff}
+.sov{position:relative;display:block;text-decoration:none;color:#fff;--z:1;transform:scale(var(--z));transition:transform .35s cubic-bezier(.22,1,.36,1),filter .35s;will-change:transform}
+.sov .frame{transition:filter .35s}.sov .inner:before{transition:transform .6s cubic-bezier(.22,1,.36,1),opacity .35s}
+.sov .go{transition:transform .35s cubic-bezier(.22,1,.36,1),filter .35s}
+.sov:hover,.sov:focus-visible{transform:scale(calc(var(--z) * 1.03)) translateY(-3px);z-index:2;outline:0}
+.sov:hover .frame,.sov:focus-visible .frame{filter:drop-shadow(0 0 14px var(--c)) drop-shadow(0 0 4px var(--c))}
+.sov:hover .inner:before,.sov:focus-visible .inner:before{transform:scale(1.07);opacity:1}
+.sov:hover .go,.sov:focus-visible .go{transform:translateX(-4px);filter:brightness(1.12)}
+.sov.on .frame{filter:drop-shadow(0 0 12px var(--c))}
 .sov .frame{padding:3px;clip-path:var(--ch16);background:var(--c)}
 .sov .inner{position:relative;clip-path:var(--ch16i3);background:#000;min-height:150px;display:flex;align-items:center;gap:14px;padding:18px 18px 18px 20px;overflow:hidden}
 .sov .inner:before{content:"";position:absolute;inset:0;background:var(--img) right center/auto 100% no-repeat;opacity:.9;-webkit-mask-image:linear-gradient(90deg,transparent 25%,#000 70%);mask-image:linear-gradient(90deg,transparent 25%,#000 70%)}
@@ -82,6 +94,20 @@ h2{margin:0;font-size:clamp(34px,6vw,56px);line-height:1.05;letter-spacing:.02em
 .step .n{width:40px;height:40px;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:15px;clip-path:var(--ch10)}
 .step h3{margin:0;font-family:'Barlow Semi Condensed',sans-serif;font-size:15px;letter-spacing:.18em;color:#fff;text-transform:uppercase}
 .step p{margin:0;font-size:15px;line-height:23px;color:#BFC3C9}
+.scanx{position:relative;margin:34px 0 40px;aspect-ratio:100/44;--P:34%}
+.scanx .pg{position:absolute;top:4.6%;width:34%;aspect-ratio:1}.scanx .pl{left:0}.scanx .pr{left:35.6%}
+.scanx .pg img,.scanx .scr img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .7s ease}.scanx img.on{opacity:1}
+.scanx .ph{position:absolute;right:0;top:0;width:23.8%;aspect-ratio:9/16}.scanx .bez{position:absolute;inset:0;padding:3px;background:var(--chrome);clip-path:var(--ch10)}.scanx .ph:before,.scanx .ph:after{content:"";position:absolute;width:4px;border-radius:2px;background:linear-gradient(90deg,#8E949D,#F3F5F7 45%,#A9AEB6)}.scanx .ph:before{left:-4px;top:17%;height:6%;box-shadow:0 calc(var(--bh,30px)) 0 #C9CDD3}.scanx .ph:after{right:-4px;top:22%;height:11%}
+.scanx .scr{position:relative;width:100%;height:100%;background:#000;clip-path:var(--ch10i2);overflow:hidden}
+.qrb{position:absolute;top:87%;width:9.4%;aspect-ratio:1;left:var(--qx,3.7%);transition:left .6s cubic-bezier(.22,1,.36,1);--c:#fff;background:linear-gradient(var(--c),var(--c)) 0 0/22% 3px,linear-gradient(var(--c),var(--c)) 0 0/3px 22%,linear-gradient(var(--c),var(--c)) 100% 0/22% 3px,linear-gradient(var(--c),var(--c)) 100% 0/3px 22%,linear-gradient(var(--c),var(--c)) 0 100%/22% 3px,linear-gradient(var(--c),var(--c)) 0 100%/3px 22%,linear-gradient(var(--c),var(--c)) 100% 100%/22% 3px,linear-gradient(var(--c),var(--c)) 100% 100%/3px 22%;background-repeat:no-repeat;animation:qrp 1.6s ease-in-out infinite;pointer-events:none}
+@keyframes qrp{50%{transform:scale(1.12)}}
+.scanx .arr{position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none;transition:opacity .3s}.scanx .arr.hide{opacity:0}
+@media (max-width:760px){.scanx{aspect-ratio:100/82;margin-bottom:28px}.scanx .arr{display:none}.scanx .pg{top:0;width:49%}.scanx .pr{left:51%}.scanx .ph{right:auto;left:32%;top:auto;bottom:0;width:36%;filter:drop-shadow(0 18px 30px rgba(0,0,0,.85))}}
+@media (prefers-reduced-motion:reduce){.qrb{animation:none}}
+.arshow{display:grid;grid-template-columns:1.2fr 1fr;gap:clamp(14px,3vw,40px);align-items:center;margin-top:28px}
+.arshow figure{margin:0}.how img{width:100%;height:auto;display:block;clip-path:var(--ch16)}
+.hand{justify-self:center;position:relative;width:min(330px,100%)}.hand .phone{position:relative;aspect-ratio:9/16;padding:3px;background:var(--chrome);clip-path:var(--ch10)}.hand video{display:block;width:100%;height:100%;object-fit:cover;background:#000;clip-path:var(--ch10i2)}.hand:after{content:"";position:absolute;left:8%;right:8%;bottom:-34px;height:40px;background:radial-gradient(50% 50% at 50% 50%,rgba(255,255,255,.12),transparent 70%);pointer-events:none}
+@media (max-width:860px){.arshow{grid-template-columns:1fr}.arshow .hand{width:min(340px,88%);margin:0 auto}}
 .split{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
 .split img{width:100%;height:auto;display:block}
 .split p{font-size:17px;line-height:27px;margin:18px 0 26px}
@@ -89,24 +115,30 @@ h2{margin:0;font-size:clamp(34px,6vw,56px);line-height:1.05;letter-spacing:.02em
 .get p{max-width:600px;margin:0;font-size:17px;line-height:27px}
 footer{padding:56px 0 calc(40px + env(safe-area-inset-bottom));text-align:center;border-top:1px solid #1a1b1e;display:flex;flex-direction:column;align-items:center;gap:14px;color:#8E949D;font-size:13px}
 footer img{width:54px}
-.fan{position:relative;width:100%;aspect-ratio:2.35/1;margin-top:-10px}
-.fc{position:absolute;width:15%;height:auto;transform:translate(-50%,-50%) rotate(var(--r));transform-origin:50% 50%;box-shadow:0 18px 40px rgba(0,0,0,.75);transition:transform .25s,z-index 0s}
-.fc.back{width:18%}
-.fc:hover{transform:translate(-50%,-58%) rotate(var(--r)) scale(1.06);z-index:200!important}
+.ring3d{position:relative;margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw);--w:clamp(120px,16vw,220px);--rad:calc(var(--w) * 1.9);height:calc(var(--w) * 2.15);margin-top:clamp(30px,5vw,64px);perspective:1700px;perspective-origin:50% 30%;overflow-x:clip;touch-action:pan-y;user-select:none;-webkit-user-select:none;cursor:grab}
+.ring3d.drag{cursor:grabbing}
+.ring3d:after{content:"";position:absolute;left:15%;right:15%;bottom:0;height:22%;background:radial-gradient(50% 50% at 50% 50%,rgba(255,255,255,.09),transparent 70%);pointer-events:none}
+.ring{position:absolute;left:50%;top:44%;width:var(--w);aspect-ratio:5/7;margin:calc(var(--w) * -.7) 0 0 calc(var(--w) / -2);transform-style:preserve-3d;transform:rotateX(-7deg) rotateY(var(--a,0deg))}
+.c3{position:absolute;inset:0;padding:0;border:0;background:none;cursor:pointer;transform-style:preserve-3d;transform:rotateY(calc(var(--i) * 36deg)) translateZ(var(--rad));-webkit-tap-highlight-color:transparent}
+.c3:focus-visible{outline:0}.c3:focus-visible .f{outline:2px solid #fff;outline-offset:4px}
+.c3in{position:absolute;inset:0;transform-style:preserve-3d;transition:transform .8s cubic-bezier(.22,1,.36,1)}
+.c3.flip .c3in{transform:rotateY(180deg)}
+.c3 img{position:absolute;inset:0;width:100%;height:100%;display:block;backface-visibility:hidden;-webkit-backface-visibility:hidden;pointer-events:none}
+.c3 .b{transform:rotateY(180deg)}
+@media (max-width:640px){.ring3d{--w:116px;--rad:calc(var(--w) * 1.75)}}
 .cardsec .head{text-align:center;align-items:center}
 .cardsec p{max-width:640px;margin:0 auto;font-size:17px;line-height:27px;text-align:center}
 @media (min-width:900px){.grid{grid-template-columns:repeat(2,1fr)}}
 @media (max-width:860px){.book,.split{grid-template-columns:1fr;gap:32px}.steps{grid-template-columns:1fr}}
-@media (max-width:640px){.book img{aspect-ratio:1/1.02;object-fit:cover;object-position:50% 64%}.book{gap:20px}.fan{aspect-ratio:auto;display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:24px}.fc,.fc.back{position:static;width:100%;transform:none!important}.fc.back{order:-1}.grid{grid-template-columns:1fr}.specs{grid-template-columns:1fr 1fr}.sov .nm{font-size:26px}.hero p.lede{font-size:15px;line-height:23px}.btn{height:50px;font-size:13px;padding:0 22px}.btn.ghost span{padding:0 20px}}
+@media (max-width:640px){.book img{aspect-ratio:1/1.02;object-fit:cover;object-position:50% 64%}.book{gap:20px}.grid{grid-template-columns:1fr}.specs{grid-template-columns:1fr 1fr}.sov .nm{font-size:26px}.hero p.lede{font-size:15px;line-height:23px}.btn{height:50px;font-size:13px;padding:0 22px}.btn.ghost span{padding:0 20px}}
 
-.fc{cursor:zoom-in;-webkit-tap-highlight-color:transparent;transition:transform .5s cubic-bezier(.22,1,.36,1),box-shadow .5s,z-index 0s}.fan.has-open .fc:not(.open):hover{transform:translate(-50%,-50%) rotate(var(--r))}.fc.closing{z-index:350!important}.fc.open{z-index:400!important;cursor:zoom-out;transform:translate(-50%,-50%) translate(var(--tx),var(--ty)) rotate(0deg) scale(var(--s))!important;box-shadow:0 40px 120px rgba(0,0,0,.95),0 0 0 1px rgba(255,255,255,.12)}.fbd{position:fixed;inset:0;background:rgba(0,0,0,.8);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);opacity:0;pointer-events:none;transition:opacity .45s ease;z-index:300}.fan.has-open .fbd{opacity:1;pointer-events:auto;cursor:zoom-out}@media (max-width:640px){.fan .fc.open,.fan .fc.closing{position:relative}.fan .fc.open{transform:translate(var(--tx),var(--ty)) scale(var(--s))!important}}@media (prefers-reduced-motion:reduce){.fc,.fbd{transition:none}}
 </style><!--protect--><style>img,video,picture,canvas{-webkit-user-drag:none;user-drag:none;-webkit-touch-callout:none;-webkit-user-select:none;user-select:none}</style><script>(function(){function hit(t){if(!t||!t.closest)return false;if(t.closest('img,video,picture,canvas,svg'))return true;try{return getComputedStyle(t).backgroundImage!=='none'}catch(e){return false}}document.addEventListener('contextmenu',function(e){if(hit(e.target))e.preventDefault()},true);document.addEventListener('dragstart',function(e){if(hit(e.target))e.preventDefault()},true);document.addEventListener('keydown',function(e){var k=(e.key||'').toLowerCase();if((e.ctrlKey||e.metaKey)&&(k==='s'||k==='u'))e.preventDefault()},true);})();</script></head><body>
 <header class="hero"><div class="strips" aria-hidden="true"><div class="s" style="--c:#E62A3F"><div style="background-image:url(../assets/eyes/eyeR-01.jpg)"></div></div><div class="s" style="--c:#F47934"><div style="background-image:url(../assets/eyes/eyeR-02.jpg);background-position-x:100%"></div></div><div class="s" style="--c:#DF9E2B"><div style="background-image:url(../assets/eyes/eyeR-03.jpg);background-position-x:100%"></div></div><div class="s" style="--c:#84D83E"><div style="background-image:url(../assets/eyes/eyeR-04.jpg)"></div></div><div class="s" style="--c:#2DD0DB"><div style="background-image:url(../assets/eyes/eyeR-05b.jpg)"></div></div><div class="s" style="--c:#0568D8"><div style="background-image:url(../assets/eyes/eye-06.jpg)"></div></div><div class="s" style="--c:#6A86AD"><div style="background-image:url(../assets/eyes/eye-07.jpg)"></div></div><div class="s" style="--c:#8C2CD9"><div style="background-image:url(../assets/eyes/eye-08.jpg)"></div></div><div class="s" style="--c:#D81B79"><div style="background-image:url(../assets/eyes/eye-09b.jpg)"></div></div><div class="s" style="--c:#E0E2E4"><div style="background-image:url(../assets/eyes/eye-10.jpg)"></div></div></div>
 <div class="in wrap">
-<img class="logo" src="../assets/logo-cover.webp" alt="The Shattered Dominion" width="1160" height="648">
+<a href="https://www.mindofderby.com/dominion" target="_top"><img class="logo" src="../assets/logo-cover.webp" alt="The Shattered Dominion" width="1160" height="648"></a>
 <span class="tag plate">TEN SOVEREIGNS. TEN REALMS.</span>
 <p class="lede">A dark fantasy photobook by MindOfDerby. Ten villains, each ruling her own realm, and a living AR world behind every spread.</p>
-<div class="ctas"><a class="btn plate" href="../">Step Inside</a><a class="btn ghost" href="#get"><span>Get the Book</span></a></div>
+<div class="ctas"><a class="btn plate" href="#realms">Enter a Realm</a><a class="btn ghost" href="#get"><span>Get the Book</span></a></div>
 <div class="icons" aria-hidden="true"><img src="../assets/icons/S01.svg" alt="" style="filter:drop-shadow(0 0 6px #E62A3F88)"><img src="../assets/icons/S02.svg" alt="" style="filter:drop-shadow(0 0 6px #F4793488)"><img src="../assets/icons/S03.svg" alt="" style="filter:drop-shadow(0 0 6px #DF9E2B88)"><img src="../assets/icons/S04.svg" alt="" style="filter:drop-shadow(0 0 6px #84D83E88)"><img src="../assets/icons/S05.svg" alt="" style="filter:drop-shadow(0 0 6px #2DD0DB88)"><img src="../assets/icons/S06.svg" alt="" style="filter:drop-shadow(0 0 6px #0568D888)"><img src="../assets/icons/S07.svg" alt="" style="filter:drop-shadow(0 0 6px #6A86AD88)"><img src="../assets/icons/S08.svg" alt="" style="filter:drop-shadow(0 0 6px #8C2CD988)"><img src="../assets/icons/S09.svg" alt="" style="filter:drop-shadow(0 0 6px #D81B7988)"><img src="../assets/icons/S10.svg" alt="" style="filter:drop-shadow(0 0 6px #E0E2E488)"></div>
 </div></header>
 <main>
@@ -121,52 +153,53 @@ footer img{width:54px}
 <div class="spec"><div><b>AR</b><span>In every spread</span></div></div>
 <div class="spec"><div><b>TEN</b><span>Trading cards</span></div></div>
 </div></div></div></section>
-<section style="padding-top:0"><div class="wrap">
+<section id="realms" style="padding-top:0"><div class="wrap">
 <div class="head"><span class="eyebrow">The ten</span><h2 class="chrome">Choose a Realm</h2></div>
 <div class="grid"><a class="sov" href="../01/" style="--c:#E62A3F;--img:url(../assets/roster/T01.jpg)"><div class="frame"><div class="inner">
 <div class="ico"><img src="../assets/icons/S01.svg" alt=""></div>
 <div class="txt"><span class="num">SOVEREIGN 1</span><span class="nm">Tamisra</span><span class="lin">Suryavanshi Remnant</span><span class="ult">Ult · Trinetra Pralaya</span></div>
-<span class="go plate">ENTER</span></div></div></a><a class="sov" href="../02/" style="--c:#F47934;--img:url(../assets/roster/T02.jpg)"><div class="frame"><div class="inner">
+<span class="go plate">ENTER REALM</span></div></div></a><a class="sov" href="../02/" style="--c:#F47934;--img:url(../assets/roster/T02.jpg)"><div class="frame"><div class="inner">
 <div class="ico"><img src="../assets/icons/S02.svg" alt=""></div>
 <div class="txt"><span class="num">SOVEREIGN 2</span><span class="nm">Banshee</span><span class="lin">Hornsign Dynasty</span><span class="ult">Ult · Shatter Horn</span></div>
-<span class="go plate">ENTER</span></div></div></a><a class="sov" href="../03/" style="--c:#DF9E2B;--img:url(../assets/roster/T03.jpg)"><div class="frame"><div class="inner">
+<span class="go plate">ENTER REALM</span></div></div></a><a class="sov" href="../03/" style="--c:#DF9E2B;--img:url(../assets/roster/T03.jpg)"><div class="frame"><div class="inner">
 <div class="ico"><img src="../assets/icons/S03.svg" alt=""></div>
 <div class="txt"><span class="num">SOVEREIGN 3</span><span class="nm">Jade</span><span class="lin">Jadeward Realm</span><span class="ult">Ult · Crystal Dominion</span></div>
-<span class="go plate">ENTER</span></div></div></a><a class="sov" href="../04/" style="--c:#84D83E;--img:url(../assets/roster/T04.jpg)"><div class="frame"><div class="inner">
+<span class="go plate">ENTER REALM</span></div></div></a><a class="sov" href="../04/" style="--c:#84D83E;--img:url(../assets/roster/T04.jpg)"><div class="frame"><div class="inner">
 <div class="ico"><img src="../assets/icons/S04.svg" alt=""></div>
 <div class="txt"><span class="num">SOVEREIGN 4</span><span class="nm">Mamba</span><span class="lin">Serqith Brood</span><span class="ult">Ult · Adaptive Venom</span></div>
-<span class="go plate">ENTER</span></div></div></a><a class="sov" href="../05/" style="--c:#2DD0DB;--img:url(../assets/roster/T05b.jpg)"><div class="frame"><div class="inner">
+<span class="go plate">ENTER REALM</span></div></div></a><a class="sov" href="../05/" style="--c:#2DD0DB;--img:url(../assets/roster/T05b.jpg)"><div class="frame"><div class="inner">
 <div class="ico"><img src="../assets/icons/S05.svg" alt=""></div>
 <div class="txt"><span class="num">SOVEREIGN 5</span><span class="nm">Gaya</span><span class="lin">Viraka Tribe</span><span class="ult">Ult · Spearfall</span></div>
-<span class="go plate">ENTER</span></div></div></a><a class="sov" href="../06/" style="--c:#0568D8;--img:url(../assets/roster/T06.jpg)"><div class="frame"><div class="inner">
+<span class="go plate">ENTER REALM</span></div></div></a><a class="sov" href="../06/" style="--c:#0568D8;--img:url(../assets/roster/T06.jpg)"><div class="frame"><div class="inner">
 <div class="ico"><img src="../assets/icons/S06.svg" alt=""></div>
 <div class="txt"><span class="num">SOVEREIGN 6</span><span class="nm">Flora</span><span class="lin">Verdanthi Lineage</span><span class="ult">Ult · Bloom of Grace</span></div>
-<span class="go plate">ENTER</span></div></div></a><a class="sov" href="../07/" style="--c:#6A86AD;--img:url(../assets/roster/T07.jpg)"><div class="frame"><div class="inner">
+<span class="go plate">ENTER REALM</span></div></div></a><a class="sov" href="../07/" style="--c:#6A86AD;--img:url(../assets/roster/T07.jpg)"><div class="frame"><div class="inner">
 <div class="ico"><img src="../assets/icons/S07.svg" alt=""></div>
 <div class="txt"><span class="num">SOVEREIGN 7</span><span class="nm">Chrona</span><span class="lin">Solkara Dynasty</span><span class="ult">Ult · Ashes of Eternity</span></div>
-<span class="go plate">ENTER</span></div></div></a><a class="sov" href="../08/" style="--c:#8C2CD9;--img:url(../assets/roster/T08.jpg)"><div class="frame"><div class="inner">
+<span class="go plate">ENTER REALM</span></div></div></a><a class="sov" href="../08/" style="--c:#8C2CD9;--img:url(../assets/roster/T08.jpg)"><div class="frame"><div class="inner">
 <div class="ico"><img src="../assets/icons/S08.svg" alt=""></div>
 <div class="txt"><span class="num">SOVEREIGN 8</span><span class="nm">Hex</span><span class="lin">Hexara Sisterhood</span><span class="ult">Ult · Hellbound Devotion</span></div>
-<span class="go plate">ENTER</span></div></div></a><a class="sov" href="../09/" style="--c:#D81B79;--img:url(../assets/roster/T09.jpg)"><div class="frame"><div class="inner">
+<span class="go plate">ENTER REALM</span></div></div></a><a class="sov" href="../09/" style="--c:#D81B79;--img:url(../assets/roster/T09.jpg)"><div class="frame"><div class="inner">
 <div class="ico"><img src="../assets/icons/S09.svg" alt=""></div>
 <div class="txt"><span class="num">SOVEREIGN 9</span><span class="nm">Strobe</span><span class="lin">Revelyn Lineage</span><span class="ult">Ult · Blinding Lights</span></div>
-<span class="go plate">ENTER</span></div></div></a><a class="sov" href="../10/" style="--c:#E0E2E4;--img:url(../assets/roster/T10.jpg)"><div class="frame"><div class="inner">
+<span class="go plate">ENTER REALM</span></div></div></a><a class="sov" href="../10/" style="--c:#E0E2E4;--img:url(../assets/roster/T10.jpg)"><div class="frame"><div class="inner">
 <div class="ico"><img src="../assets/icons/S10.svg" alt=""></div>
 <div class="txt"><span class="num">SOVEREIGN X</span><span class="nm">Glacia</span><span class="lin">Crysalis Dominion</span><span class="ult">Ult · Polar Dominion</span></div>
-<span class="go plate">ENTER</span></div></div></a></div></div></section>
+<span class="go plate">ENTER REALM</span></div></div></a></div></div></section>
 <section><div class="wrap">
 <div class="head"><span class="eyebrow">AR, no app</span><h2 class="chrome">Step Inside</h2></div>
+<div class="scanx" aria-label="How to scan a page: the code on each spread opens her realm on your phone"><div class="pg pl"><img class=" on" src="scan/01-tamisra-l.webp" alt="" decoding="async"><img class="" src="scan/02-banshee-l.webp" alt="" loading="lazy" decoding="async"><img class="" src="scan/03-jade-l.webp" alt="" loading="lazy" decoding="async"><img class="" src="scan/04-mamba-l.webp" alt="" loading="lazy" decoding="async"><img class="" src="scan/05-gaya-l.webp" alt="" loading="lazy" decoding="async"><img class="" src="scan/06-flora-l.webp" alt="" loading="lazy" decoding="async"><img class="" src="scan/07-chrona-l.webp" alt="" loading="lazy" decoding="async"><img class="" src="scan/08-hex-l.webp" alt="" loading="lazy" decoding="async"><img class="" src="scan/09-strobe-l.webp" alt="" loading="lazy" decoding="async"><img class="" src="scan/10-glacia-l.webp" alt="" loading="lazy" decoding="async"></div><div class="pg pr"><img class=" on" src="scan/01-tamisra-r.webp" alt="" decoding="async"><img class="" src="scan/02-banshee-r.webp" alt="" loading="lazy" decoding="async"><img class="" src="scan/03-jade-r.webp" alt="" loading="lazy" decoding="async"><img class="" src="scan/04-mamba-r.webp" alt="" loading="lazy" decoding="async"><img class="" src="scan/05-gaya-r.webp" alt="" loading="lazy" decoding="async"><img class="" src="scan/06-flora-r.webp" alt="" loading="lazy" decoding="async"><img class="" src="scan/07-chrona-r.webp" alt="" loading="lazy" decoding="async"><img class="" src="scan/08-hex-r.webp" alt="" loading="lazy" decoding="async"><img class="" src="scan/09-strobe-r.webp" alt="" loading="lazy" decoding="async"><img class="" src="scan/10-glacia-r.webp" alt="" loading="lazy" decoding="async"><span class="qrb"></span></div><svg class="arr" aria-hidden="true"><polyline fill="none" stroke="#C9CDD3" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" points=""/><polyline class="ah" fill="none" stroke="#C9CDD3" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" points=""/><circle r="4" fill="#C9CDD3"/></svg><div class="ph"><div class="bez"><div class="scr"><img class=" on" src="scan/01-tamisra-app.webp" alt="" decoding="async"><img class="" src="scan/02-banshee-app.webp" alt="" loading="lazy" decoding="async"><img class="" src="scan/03-jade-app.webp" alt="" loading="lazy" decoding="async"><img class="" src="scan/04-mamba-app.webp" alt="" loading="lazy" decoding="async"><img class="" src="scan/05-gaya-app.webp" alt="" loading="lazy" decoding="async"><img class="" src="scan/06-flora-app.webp" alt="" loading="lazy" decoding="async"><img class="" src="scan/07-chrona-app.webp" alt="" loading="lazy" decoding="async"><img class="" src="scan/08-hex-app.webp" alt="" loading="lazy" decoding="async"><img class="" src="scan/09-strobe-app.webp" alt="" loading="lazy" decoding="async"><img class="" src="scan/10-glacia-app.webp" alt="" loading="lazy" decoding="async"></div></div></div></div>
 <div class="steps">
-<div class="step"><div><span class="n plate">1</span><h3>Open the book</h3><p>Every spread carries a code. Scan it with your phone camera, or tap Start Camera and point it at the page.</p></div></div>
+<div class="step"><div><span class="n plate">1</span><h3>Open the book</h3><p>Every spread carries a code by the page edge. Point your normal phone camera at it and tap the link that pops up.</p></div></div>
 <div class="step"><div><span class="n plate">2</span><h3>The page opens</h3><p>Her realm loads in your browser. Nothing to download, nothing to sign up for.</p></div></div>
 <div class="step"><div><span class="n plate">3</span><h3>Look around</h3><p>Drag or tilt your phone. The world shifts in layers around her while smoke and sparks drift past.</p></div></div>
 </div>
-<div class="ctas" style="margin-top:28px;justify-content:flex-start"><a class="btn plate" href="../">Start Camera</a></div>
+<a class="cam" href="../scan/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7h3l2-3h8l2 3h3v13H3z"/><circle cx="12" cy="13" r="4"/></svg>No camera app? Scan here</a>
 </div></section>
 <section class="cardsec"><div class="wrap">
 <div class="head"><span class="eyebrow">Collect all ten</span><h2 class="chrome">The Cards</h2></div>
 <p>Ten collectible trading cards, one per sovereign, with her trait, her ult and her element. The back of every card opens the realms.</p>
-<div class="fan"><img class="fc" src="cards/card-01-tamisra.jpg?v=2" alt="Tamisra trading card" style="left:14.00%;top:62.00%;--r:-30.0deg;z-index:95"><img class="fc" src="cards/card-02-banshee.jpg?v=2" alt="Banshee trading card" style="left:21.20%;top:57.20%;--r:-24.0deg;z-index:96"><img class="fc" src="cards/card-03-jade.jpg?v=2" alt="Jade trading card" style="left:28.40%;top:53.07%;--r:-18.0deg;z-index:97"><img class="fc" src="cards/card-04-mamba.jpg?v=3" alt="Mamba trading card" style="left:35.60%;top:49.69%;--r:-12.0deg;z-index:98"><img class="fc" src="cards/card-05-gaya.jpg?v=2" alt="Gaya trading card" style="left:42.80%;top:47.22%;--r:-6.0deg;z-index:99"><img class="fc back" src="cards/card-back.jpg" alt="Card back" style="left:50.00%;top:46.00%;--r:0.0deg;z-index:100"><img class="fc" src="cards/card-06-flora.jpg?v=2" alt="Flora trading card" style="left:57.20%;top:47.22%;--r:6.0deg;z-index:99"><img class="fc" src="cards/card-07-chrona.jpg?v=2" alt="Chrona trading card" style="left:64.40%;top:49.69%;--r:12.0deg;z-index:98"><img class="fc" src="cards/card-08-hex.jpg?v=3" alt="Hex trading card" style="left:71.60%;top:53.07%;--r:18.0deg;z-index:97"><img class="fc" src="cards/card-09-strobe.jpg?v=2" alt="Strobe trading card" style="left:78.80%;top:57.20%;--r:24.0deg;z-index:96"><img class="fc" src="cards/card-10-glacia.jpg?v=2" alt="Glacia trading card" style="left:86.00%;top:62.00%;--r:30.0deg;z-index:95"></div>
+<div class="ring3d"><div class="ring"><button class="c3" style="--i:0" aria-label="Flip the Tamisra card"><span class="c3in"><img class="f" src="cards3d/01-tamisra.webp" alt="Tamisra trading card" loading="lazy"><img class="b" src="cards3d/back.webp" alt="" loading="lazy"></span></button><button class="c3" style="--i:1" aria-label="Flip the Banshee card"><span class="c3in"><img class="f" src="cards3d/02-banshee.webp" alt="Banshee trading card" loading="lazy"><img class="b" src="cards3d/back.webp" alt="" loading="lazy"></span></button><button class="c3" style="--i:2" aria-label="Flip the Jade card"><span class="c3in"><img class="f" src="cards3d/03-jade.webp" alt="Jade trading card" loading="lazy"><img class="b" src="cards3d/back.webp" alt="" loading="lazy"></span></button><button class="c3" style="--i:3" aria-label="Flip the Mamba card"><span class="c3in"><img class="f" src="cards3d/04-mamba.webp" alt="Mamba trading card" loading="lazy"><img class="b" src="cards3d/back.webp" alt="" loading="lazy"></span></button><button class="c3" style="--i:4" aria-label="Flip the Gaya card"><span class="c3in"><img class="f" src="cards3d/05-gaya.webp" alt="Gaya trading card" loading="lazy"><img class="b" src="cards3d/back.webp" alt="" loading="lazy"></span></button><button class="c3" style="--i:5" aria-label="Flip the Flora card"><span class="c3in"><img class="f" src="cards3d/06-flora.webp" alt="Flora trading card" loading="lazy"><img class="b" src="cards3d/back.webp" alt="" loading="lazy"></span></button><button class="c3" style="--i:6" aria-label="Flip the Chrona card"><span class="c3in"><img class="f" src="cards3d/07-chrona.webp" alt="Chrona trading card" loading="lazy"><img class="b" src="cards3d/back.webp" alt="" loading="lazy"></span></button><button class="c3" style="--i:7" aria-label="Flip the Hex card"><span class="c3in"><img class="f" src="cards3d/08-hex.webp" alt="Hex trading card" loading="lazy"><img class="b" src="cards3d/back.webp" alt="" loading="lazy"></span></button><button class="c3" style="--i:8" aria-label="Flip the Strobe card"><span class="c3in"><img class="f" src="cards3d/09-strobe.webp" alt="Strobe trading card" loading="lazy"><img class="b" src="cards3d/back.webp" alt="" loading="lazy"></span></button><button class="c3" style="--i:9" aria-label="Flip the Glacia card"><span class="c3in"><img class="f" src="cards3d/10-glacia.webp" alt="Glacia trading card" loading="lazy"><img class="b" src="cards3d/back.webp" alt="" loading="lazy"></span></button></div></div>
 </div></section>
 <section id="get"><div class="wrap get">
 <span class="eyebrow">First printing</span><h2 class="chrome">Join the Waitlist</h2>
@@ -181,7 +214,7 @@ footer img{width:54px}
 <div class="ctas"><button class="btn plate" type="submit">Join the Waitlist</button><a class="btn ghost" href="mailto:hello@mindofderby.com?subject=The%20Shattered%20Dominion%3A%20gallery%20show"><span>Galleries &amp; Press</span></a></div>
 <p class="msg" role="status" aria-live="polite"></p>
 </form>
-<div class="done" hidden><h3 class="chrome">You are on the list.</h3><p>We will email you the moment The Shattered Dominion drops. Until then, scan any page of the book or step into a realm now.</p><div class="ctas"><a class="btn plate" href="../">Step Inside</a></div></div>
+<div class="done" hidden><h3 class="chrome">You are on the list.</h3><p>We will email you the moment The Shattered Dominion drops. Until then, scan any page of the book or step into a realm now.</p><div class="ctas"><a class="btn plate" href="#realms">Enter a Realm</a></div></div>
 </div></section>
 <script>
 (function(){var C='47f071f7-2296-4ee0-a2cc-05d80f4c5f68',F='4493e3bc-9333-4cab-8f0e-0b50834f0957',A='https://www.wixapis.com',f=document.getElementById('wl'),m=f.querySelector('.msg');
@@ -195,30 +228,42 @@ var sv={email_e974:em,interest_65df:f.querySelector('input[name=want]:checked').
 tok().then(function(t){return fetch(A+'/form-submission-service/v4/submissions',{method:'POST',headers:{'Content-Type':'application/json',Authorization:t},body:JSON.stringify({submission:{formId:F,submissions:sv}})})}).then(function(x){if(!x.ok)throw 0;f.hidden=true;var dn=document.querySelector('.get .done');dn.hidden=false;dn.scrollIntoView({behavior:'smooth',block:'center'})}).catch(function(){bt.disabled=false;m.innerHTML='That did not go through. Email <a href="mailto:hello@mindofderby.com?subject=The%20Shattered%20Dominion%3A%20waitlist">hello@mindofderby.com</a> and we will add you.'})});})();
 </script>
 </main>
-<footer><img src="../assets/derby-logo.svg" alt="MindOfDerby"><span>Dedicated to all the badass women in the world.</span><span><a href="https://www.mindofderby.com">mindofderby.com</a> · hello@mindofderby.com</span></footer>
 <script>
-(function(){var fan=document.querySelector('.fan');if(!fan)return;
-var bd=document.createElement('div');bd.className='fbd';fan.appendChild(bd);
-var cards=[].slice.call(fan.querySelectorAll('.fc')),cur=null,y0=0;
-function hi(c){return c.getAttribute('src').replace('cards/','cards/hi/')}
-cards.forEach(function(c){c.setAttribute('tabindex','0');c.setAttribute('role','button');
-  c.addEventListener('pointerenter',function(){if(!c.dataset.pre){c.dataset.pre=1;(new Image()).src=hi(c)}},{passive:true});
-  c.addEventListener('click',function(e){e.stopPropagation();cur===c?close():open(c)});
-  c.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();cur===c?close():open(c)}});});
-function open(c){if(cur)close(true);
-  var abs=getComputedStyle(c).position==='absolute',cx,cy;
-  if(abs){var f=fan.getBoundingClientRect();cx=f.left+c.offsetLeft;cy=f.top+c.offsetTop}
-  else{var r=c.getBoundingClientRect();cx=r.left+r.width/2;cy=r.top+r.height/2}
-  var vw=window.innerWidth,vh=window.innerHeight,s=Math.min(vh*0.86/c.offsetHeight,vw*0.9/c.offsetWidth);
-  c.style.setProperty('--tx',(vw/2-cx)+'px');c.style.setProperty('--ty',(vh/2-cy)+'px');c.style.setProperty('--s',s.toFixed(3));
-  var im=new Image();im.onload=function(){if(cur===c&&!c.dataset.lo){c.dataset.lo=c.getAttribute('src');c.src=im.src}};im.src=hi(c);
-  c.classList.remove('closing');c.classList.add('open');fan.classList.add('has-open');cur=c;y0=window.scrollY;}
-function close(fast){var c=cur;if(!c)return;cur=null;c.classList.remove('open');fan.classList.remove('has-open');
-  c.classList.add('closing');setTimeout(function(){c.classList.remove('closing')},fast?0:520);}
-bd.addEventListener('click',function(){close()});
-document.addEventListener('keydown',function(e){if(e.key==='Escape')close()});
-window.addEventListener('scroll',function(){if(cur&&Math.abs(window.scrollY-y0)>60)close()},{passive:true});
-window.addEventListener('resize',function(){if(cur)close(true)});
+(function(){var st=document.querySelector('.scanx');if(!st)return;var Q=[[88.3,95.6]],n=10,k=0;
+var L=st.querySelectorAll('.pl img'),R=st.querySelectorAll('.pr img'),A=st.querySelectorAll('.scr img'),qb=st.querySelector('.qrb'),svg=st.querySelector('.arr'),pl=svg.querySelectorAll('polyline'),dot=svg.querySelector('circle');
+function pos(){var q=Q[0];qb.style.setProperty('--qx',(((q[0]+q[1])/2)-4.7)+'%')}
+function draw(){var s=st.getBoundingClientRect(),b=qb.getBoundingClientRect(),p=st.querySelector('.ph').getBoundingClientRect();
+ var x=b.left+b.width/2-s.left,y=b.bottom-s.top+8,pl0=p.left-s.left,pr0=p.right-s.left,pt=p.top-s.top,pb=p.bottom-s.top,pts,ex,ey,dir;
+ if(x>pl0+20&&x<pr0-20){ex=x;ey=pt-10;pts=[[x,y],[x,ey]];dir='d'}
+ else{var ty=Math.max(y+26,Math.min(pb-40,pt+(pb-pt)*.4));if(ty<y+18)ty=y+18;ex=x<pl0?pl0-12:pr0+12;ey=ty;pts=[[x,y],[x,ty-14],[x+(ex>x?14:-14),ty],[ex,ty]];dir=ex>x?'r':'l'}
+ pl[0].setAttribute('points',pts.map(function(a){return a.join(',')}).join(' '));
+ var h=9,hp=dir=='d'?[[ex-h,ey-h],[ex,ey],[ex+h,ey-h]]:dir=='r'?[[ex-h,ey-h],[ex,ey],[ex-h,ey+h]]:[[ex+h,ey-h],[ex,ey],[ex+h,ey+h]];
+ pl[1].setAttribute('points',hp.map(function(a){return a.join(',')}).join(' '));dot.setAttribute('cx',x);dot.setAttribute('cy',y);}
+function show(i){[L,R,A].forEach(function(g){g[k].classList.remove('on')});k=i;[L,R,A].forEach(function(g){g[k].classList.add('on')});svg.classList.add('hide');pos();setTimeout(function(){draw();svg.classList.remove('hide')},620)}
+pos();requestAnimationFrame(draw);addEventListener('resize',draw);
+if(matchMedia('(prefers-reduced-motion:reduce)').matches)return;
+var vis=true;if('IntersectionObserver' in window)new IntersectionObserver(function(e){vis=e[0].isIntersecting}).observe(st);
+setInterval(function(){if(vis&&!document.hidden)show((k+1)%n)},3400);
 })();
+</script>
+<footer><a href="https://www.mindofderby.com" target="_top"><img src="../assets/derby-logo.svg" alt="MindOfDerby"></a><span>Dedicated to all the badass women in the world.</span><span><a href="https://www.mindofderby.com">mindofderby.com</a> · hello@mindofderby.com</span></footer>
+<script>
+(function(){var st=document.querySelector('.ring3d');if(!st)return;var ring=st.querySelector('.ring'),cards=[].slice.call(st.querySelectorAll('.c3')),imgs=cards.map(function(c){return c.querySelectorAll('img')});
+var a=0,v=-9,run=true,hov=false,vis=true,drag=null,last=performance.now(),rm=matchMedia('(prefers-reduced-motion:reduce)').matches;if(rm)v=0;
+function paint(){ring.style.setProperty('--a',a.toFixed(2)+'deg');cards.forEach(function(c,i){var t=(a+i*36)*Math.PI/180,k=(Math.cos(t)+1)/2,b=(0.28+0.72*k).toFixed(3);imgs[i][0].style.filter=imgs[i][1].style.filter='brightness('+b+')'})}
+function tick(n){var dt=Math.min(64,n-last);last=n;if(!drag&&!hov&&vis)a+=v*dt/1000;paint();requestAnimationFrame(tick)}requestAnimationFrame(tick);
+if('IntersectionObserver' in window)new IntersectionObserver(function(e){vis=e[0].isIntersecting}).observe(st);
+st.addEventListener('pointerenter',function(e){if(e.pointerType==='mouse')hov=true});st.addEventListener('pointerleave',function(){hov=false});
+st.addEventListener('pointerdown',function(e){drag={x:e.clientX,a:a,m:false,id:e.pointerId,t:e.target.closest('.c3')}});
+window.addEventListener('pointermove',function(e){if(!drag||e.pointerId!==drag.id)return;var dx=e.clientX-drag.x;if(Math.abs(dx)>6){drag.m=true;st.classList.add('drag')}if(drag.m)a=drag.a+dx*0.25});
+window.addEventListener('pointerup',function(e){if(!drag||e.pointerId!==drag.id)return;var d=drag;drag=null;st.classList.remove('drag');if(!d.m&&d.t)d.t.classList.toggle('flip')});
+window.addEventListener('pointercancel',function(){drag=null;st.classList.remove('drag')});
+cards.forEach(function(c){c.addEventListener('click',function(e){if(e.detail===0)c.classList.toggle('flip')})});
+})();
+</script>
+<script>
+(function(){var els=[].slice.call(document.querySelectorAll('.sov'));if(!els.length||matchMedia('(prefers-reduced-motion:reduce)').matches)return;var tk=0;
+function up(){tk=0;var h=innerHeight,best=null,bd=1e9;els.forEach(function(e){var r=e.getBoundingClientRect(),c=r.top+r.height/2,d=Math.abs(c-h/2)/(h/2);var z=1.025-Math.min(d,1)*0.06;e.style.setProperty('--z',z.toFixed(3));if(d<bd){bd=d;best=e}});els.forEach(function(e){e.classList.toggle('on',e===best&&bd<.35)})}
+addEventListener('scroll',function(){if(!tk){tk=1;requestAnimationFrame(up)}},{passive:true});addEventListener('resize',up);up();})();
 </script>
 </body></html>
