@@ -97,3 +97,8 @@ html.cur.out #cur,html.cur.out #cur2{opacity:0}
 .opn .hi{overflow:hidden}
 .opn .pr .rp,.opn .hiR img,.opn .leaf .fc img{left:-2.4%;top:-1.2%;width:102.4%;height:102.4%;inset:auto}
 .opn .flap .bc img,.opn .hiL img,.opn .leaf .bc img{left:0;top:-1.2%;width:102.4%;height:102.4%;inset:auto}
+.opn .gtr,.opn .pr .pg:after{display:none}
+.opn .flap .bc .sh{background:none}
+.opn .leaf .sh,.opn .leaf .bc .sh{background:#000}
+.opn .bc .sh2{opacity:calc(var(--bs,1)*.15)}
+.opn .fc .sh{opacity:calc(var(--fs,0)*.4)}
