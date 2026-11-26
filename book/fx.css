@@ -3,7 +3,6 @@ html{--amc:#000;transition:--amc 1.1s ease}
 html.lenis,html.lenis body{height:auto}
 .lenis.lenis-smooth{scroll-behavior:auto!important}
 .lenis.lenis-stopped{overflow:hidden}
-#amb{position:fixed;inset:-10%;z-index:0;pointer-events:none;background:radial-gradient(55% 45% at 50% 55%,color-mix(in srgb,var(--amc) 22%,transparent),transparent 72%);opacity:.9}
 header.hero,main{position:relative;z-index:1}
 
 /* loader */
@@ -93,3 +92,8 @@ html.cur.out #cur,html.cur.out #cur2{opacity:0}
 .opn .nav button:disabled{opacity:.25;pointer-events:none}
 .opn .nav .nm{min-width:160px;text-align:center;font-size:clamp(18px,2vw,26px);letter-spacing:.06em;font-family:Cinzel,serif;font-weight:900}
 @media (max-width:760px){.opn .nav{bottom:12vh;gap:10px}.opn .nav button{width:46px;height:46px}.opn .nav .nm{min-width:120px}}
+.opn .rip{position:absolute;inset:0;width:100%;height:100%;z-index:3;pointer-events:none;opacity:0}
+.opn .gtr{position:absolute;left:calc(var(--W)*.9);top:0;width:calc(var(--W)*.2);height:100%;transform:translateZ(2.6px);pointer-events:none;opacity:var(--gt,0);background:linear-gradient(90deg,transparent,rgba(0,0,0,.35) 30%,rgba(0,0,0,.78) 47%,#000 50%,rgba(0,0,0,.78) 53%,rgba(0,0,0,.35) 70%,transparent)}
+.opn .hi{overflow:hidden}
+.opn .pr .rp,.opn .hiR img,.opn .leaf .fc img{left:-2.4%;top:-1.2%;width:102.4%;height:102.4%;inset:auto}
+.opn .flap .bc img,.opn .hiL img,.opn .leaf .bc img{left:0;top:-1.2%;width:102.4%;height:102.4%;inset:auto}
