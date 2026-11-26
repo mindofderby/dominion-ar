@@ -37,7 +37,7 @@ html.cur.out #cur,html.cur.out #cur2{opacity:0}
 /* the book opens */
 .opn{position:relative;height:440vh;padding:0}
 .opn .stg{position:sticky;top:0;height:100vh;height:100lvh;overflow:hidden;perspective:2200px;perspective-origin:50% 45%;--W:min(36vw,62vh);--T:calc(var(--W)*.045)}
-.opn .glo{position:absolute;inset:0;background:radial-gradient(42% 38% at 50% 52%,rgba(230,42,63,.38),rgba(230,42,63,.08) 45%,transparent 70%);opacity:var(--go,0);pointer-events:none}
+.opn .glo{position:absolute;inset:0;background:radial-gradient(42% 38% at 50% 52%,rgba(var(--sc,230,42,63),.38),rgba(var(--sc,230,42,63),.08) 45%,transparent 70%);opacity:var(--go,0);pointer-events:none}
 .opn .cmr{position:absolute;inset:0;z-index:1;transform-style:preserve-3d;will-change:transform}
 .opn .bk{position:absolute;left:50%;top:50%;width:calc(var(--W)*2);height:var(--W);margin:calc(var(--W)*-.5) 0 0 calc(var(--W)*-1);transform-style:preserve-3d;will-change:transform}
 .opn .shd{position:absolute;left:50%;top:50%;width:calc(var(--W)*2.3);height:calc(var(--W)*.5);margin:calc(var(--W)*.42) 0 0 calc(var(--W)*-1.15);background:radial-gradient(50% 50% at 50% 50%,rgba(0,0,0,.95),transparent 70%);filter:blur(18px);transform:translateX(var(--sx,0)) scaleX(var(--ss,.55));opacity:var(--so,.8)}
@@ -45,7 +45,7 @@ html.cur.out #cur,html.cur.out #cur2{opacity:0}
 .opn .pr .pg{position:absolute;inset:0;overflow:hidden;border-radius:0 2px 2px 0}
 .opn .pr .pg:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.55),rgba(0,0,0,0) 9%,rgba(255,255,255,.04) 11%,rgba(0,0,0,0) 16%);pointer-events:none;opacity:var(--gut,1)}
 .opn .rp{position:absolute;inset:0;width:100%;height:100%;display:block;opacity:var(--rpo,1)}
-.opn .rl{position:absolute;left:2.22%;top:2.22%;width:95.57%;height:95.57%;overflow:hidden}
+.opn .rl{position:absolute;left:0;top:0;width:10px;height:10px;z-index:2;overflow:hidden;opacity:var(--al,0);pointer-events:none;background:#000}
 .opn .rl .ly{position:absolute;inset:0;background-size:100% 100%;will-change:transform}
 .opn .rl .fx{background-size:100% 100%;mix-blend-mode:screen;opacity:0}
 .opn .edge{position:absolute;top:1.2%;left:100%;width:var(--T);height:97.6%;transform-origin:0 50%;transform:rotateY(90deg);background:repeating-linear-gradient(90deg,#d8d3c8 0 1px,#b9b3a6 1px 2px);box-shadow:inset 0 0 12px rgba(0,0,0,.5)}
