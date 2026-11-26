@@ -102,3 +102,13 @@ html.cur.out #cur,html.cur.out #cur2{opacity:0}
 .opn .leaf .sh,.opn .leaf .bc .sh{background:#000}
 .opn .bc .sh2{opacity:calc(var(--bs,1)*.15)}
 .opn .fc .sh{opacity:calc(var(--fs,0)*.4)}
+.opn .pop{position:absolute;left:var(--W);top:0;width:var(--W);height:var(--W);transform-style:preserve-3d;transform:translateZ(3px);pointer-events:none}
+.opn .pop .pl{position:absolute;left:0;width:100%;height:100%;background-size:100% 100%;background-repeat:no-repeat;transform-origin:50% 100%;opacity:0}
+.opn .pop .pb{left:2%;width:96%;height:96%}
+.opn .pop .px{-webkit-mask-image:radial-gradient(55% 55% at 50% 55%,#000 30%,transparent 100%);mask-image:radial-gradient(55% 55% at 50% 55%,#000 30%,transparent 100%)}
+.opn .pop .pshd{position:absolute;left:10%;width:80%;top:74%;height:26%;background:radial-gradient(50% 50% at 50% 60%,rgba(0,0,0,.85),transparent 70%);opacity:0}
+.opn .hiR img,.opn .pr .rp,.opn .leaf .fc img{filter:brightness(var(--pd,1))}
+.opn .cmr{transform:none!important}
+.opn .rl,.opn .rip{display:none!important}
+@media (max-width:760px){.opn .stg{--W:68vw}}
+.opn .pop .pb{-webkit-mask-image:radial-gradient(70% 75% at 50% 62%,#000 55%,transparent 100%);mask-image:radial-gradient(70% 75% at 50% 62%,#000 55%,transparent 100%)}
