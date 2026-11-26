@@ -71,9 +71,9 @@ if(sec){var SV=[["#E62A3F","Tamisra","b:plate.webp?v=2|l:floor.webp|c:char.webp|
   /* page riffle: scroll drives it in, arrows animate it after */
   var tgt=K;if(e<1||RM){pos=K}else{if(pos<0)pos=tgt;var df=tgt-pos;pos+=Math.sign(df)*Math.min(Math.abs(df),dt*Math.max(2.2,Math.abs(df)*2.4))}
   var settled=Math.abs(pos-tgt)<.002;
-  var rx=24+(10-24)*a;rx+=(3-rx)*b;rx*=1-k;var ry=34+(16-34)*a;ry*=1-b;var rz=-5+4*a;rz*=1-b;var mob=vw<760,sc=mob?(.9+.1*a)*(1.55-.55*b):.74+.26*a;
+  var pre=EO(cl(1-r.top/vh,0,1)),tt=time/1000,idle=1-b;var rx0=30-18*pre,rx=rx0+(8-rx0)*a;rx+=(3-rx)*b;rx+=Math.sin(tt*.8+1)*3*idle;rx*=1-k;var ry0=58-32*pre,ry=ry0+(14-ry0)*a;ry+=Math.sin(tt*.55)*7*idle;ry*=1-b;var rz=(-9+6*pre)*(1-a*.6);rz*=1-b;var mob=vw<760,sc=mob?(.72+.18*pre+.1*a)*(1.55-.55*b):.58+.2*pre+.22*a;
   var tl=1-k;rx+=-my*4*tl;ry+=mx*6*tl;
-  var shift=-.5*W*(1-b),lift=(1-a)*vh*.06,zs=.2;
+  var shift=-.5*W*(1-b),lift=Math.sin(tt*1.05)*vh*.012*idle,zs=.2;
   bk.style.transform='translate3d('+shift.toFixed(2)+'px,'+lift.toFixed(2)+'px,0) rotateX('+rx.toFixed(3)+'deg) rotateY('+ry.toFixed(3)+'deg) rotateZ('+rz.toFixed(3)+'deg) scale('+sc.toFixed(4)+')';
   var bow=Math.sin(Math.PI*b);
   flap.style.transform='translateZ('+((11*zs)*(1-b)+bow*W*.05).toFixed(2)+'px) rotateY('+(-180*b).toFixed(3)+'deg) rotateX('+(-bow*2).toFixed(3)+'deg)';
@@ -85,7 +85,7 @@ if(sec){var SV=[["#E62A3F","Tamisra","b:plate.webp?v=2|l:floor.webp|c:char.webp|
   cam.style.transform='scale('+s.toFixed(5)+') translate3d('+((-.5*W+GX*W+oxL)*k).toFixed(2)+'px,'+(oyL*k).toFixed(2)+'px,0)';
   cam.style.visibility=d>=1?'hidden':'visible';
   S(stg,'--fs',(b*.85).toFixed(3));S(stg,'--bs',(1-b).toFixed(3));S(stg,'--gx',(-45+90*a)+'%');
-  S(stg,'--go',((a*.55+b*.45)*(1-k)).toFixed(3));S(stg,'--so',(.85*(1-k)).toFixed(3));S(stg,'--ss',(.55+.45*b).toFixed(3));S(stg,'--sx',shift.toFixed(1)+'px');
+  S(stg,'--go',((pre*.35+a*.2+b*.45)*(1-k)).toFixed(3));S(stg,'--so',(.85*(1-k)).toFixed(3));S(stg,'--ss',(.55+.45*b).toFixed(3));S(stg,'--sx',shift.toFixed(1)+'px');
   S(stg,'--al',1);S(stg,'--gut',(1-c).toFixed(3));S(stg,'--gt',(b*(1-k)).toFixed(3));S(stg,'--vg',(f*.95).toFixed(3));S(stg,'--cu',(1-seg(p,0,.03)).toFixed(3));
   if(d>0){var isz=s*W*IF,icx=vw/2+s*((.5*W-GX*W)*(1-k)+oxL*k),icy=vh/2+s*(lift+oyL*k);rl.style.width=rl.style.height=isz.toFixed(1)+'px';rl.style.transform='translate3d('+(icx-isz/2).toFixed(1)+'px,'+(icy-isz/2).toFixed(1)+'px,0)'+(d<1&&rl.dataset.sc?' scale('+rl.dataset.sc+')':'')}
   ripple(d,vw,vh,typeof icx==='number'?icx+(FOC[K][0]-.5)*isz:vw/2,typeof icy==='number'?icy+(FOC[K][1]-.5)*isz:vh/2,time,FOC[K]);
